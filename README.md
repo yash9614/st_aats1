@@ -1,6 +1,6 @@
 # Statistics Materials (st_aats1)
 
-A focused repository of statistics notes, formulas, practical code patterns, interview questions (conceptual + coding-style), and official takeaways.
+A focused repository of statistics notes, formulas, practical code patterns, interview questions (conceptual + coding-style with solutions), and official takeaways.
 
 ## Contents
 
@@ -14,6 +14,7 @@ A focused repository of statistics notes, formulas, practical code patterns, int
 | [statistics_interview_questions.md](statistics_interview_questions.md) | Conceptual interview questions |
 | [statistics_interview_answers.md](statistics_interview_answers.md) | Concise answers to the conceptual questions |
 | [practical_interview_questions.md](practical_interview_questions.md) | Coding-style questions (Welford, MAD, two-proportion z, VIF) |
+| [practical_interview_solutions.md](practical_interview_solutions.md) | Working Python solutions for the coding-style questions |
 | [statistics_materials_index.md](statistics_materials_index.md) | Index of notes and external sources |
 
 ## Suggested Learning Path
@@ -23,7 +24,7 @@ A focused repository of statistics notes, formulas, practical code patterns, int
 3. [Inferential Statistics](inferential_statistics.md)
 4. [Practical Python Examples](practical_python_examples.md)
 5. [Conceptual Interview Questions](statistics_interview_questions.md) → [Answers](statistics_interview_answers.md)
-6. [Practical / Coding Interview Questions](practical_interview_questions.md)
+6. [Practical / Coding Interview Questions](practical_interview_questions.md) → [Solutions](practical_interview_solutions.md)
 
 ## Sources
 

@@ -12,6 +12,7 @@
 | [statistics_interview_questions.md](statistics_interview_questions.md) | Conceptual beginner + intermediate interview questions |
 | [statistics_interview_answers.md](statistics_interview_answers.md) | Concise answers to the conceptual questions |
 | [practical_interview_questions.md](practical_interview_questions.md) | Coding-style questions (Welford, sample/population variance, two-proportion z-test, MAD outliers, VIF) |
+| [practical_interview_solutions.md](practical_interview_solutions.md) | Working Python solutions for the coding-style questions |
 
 ## Topics Covered
 
