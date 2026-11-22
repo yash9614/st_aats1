@@ -1,79 +1,80 @@
 # Inferential Statistics: CLT, Confidence Intervals, Hypothesis Testing & A/B Tests
 
-Notes distilled from chapters 8–12 materials.
-
 ## Central Limit Theorem (CLT)
 
-Even if the population is skewed, the **sampling distribution of the sample mean** approaches normality as sample size grows.
+Even when the population distribution is skewed, the **sampling distribution of the sample mean** approaches a normal distribution as the sample size increases.
 
-- Example: electricity bill survey → original data right-skewed, sampling distribution of means approximately normal.
-- Justifies normal-based inference for large samples.
+- Demonstration: monthly electricity bills are right-skewed; the distribution of sample means becomes approximately normal.
+- Justifies normal-based methods for sufficiently large samples.
 
 ## Confidence Intervals
 
-Range likely to contain the true population parameter (usually the mean) at a chosen confidence level (commonly 95%).
+A range that is likely to contain the true population parameter at a chosen confidence level (commonly 95%).
 
-Large-sample / known-σ formula:
+Large-sample formula (known $\sigma$):
 
 $$ \bar{x} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}} $$
 
-Example: daily miles driven — sample from population data, compute CI, compare to known population mean.
+Example: daily miles driven — draw a sample from known population data, compute a CI for the mean, and compare it with the population value.
 
-## Hypothesis Testing — General Workflow
+## Hypothesis Testing Workflow
 
-1. State **H₀** (no effect / no difference) and **H₁** (effect exists).
-2. Choose significance level α (usually 0.05).
-3. Compute test statistic.
-4. Decide via **critical value** (rejection region) **or** **p-value** (both methods agree).
-5. Interpret in context.
+1. State $H_0$ (no effect / no difference) and $H_1$ (effect exists).
+2. Choose significance level $\alpha$ (usually 0.05).
+3. Compute the test statistic.
+4. Decide using the **critical value** (rejection region) **or** the **p-value** (the two methods agree).
+5. Interpret the result in context.
 
-### One-Tailed Z-Test (Housing Inflation)
-- H₀: inflation = 10%
-- H₁: inflation > 10%
-- Reject H₀ if Z > critical value or p < α.
+### One-Tailed Z-Test
+
+- Example: housing inflation.
+- $H_0$: inflation = 10%; $H_1$: inflation > 10%.
+- Reject $H_0$ if the Z-statistic exceeds the critical value or if $p < \alpha$.
 
 ### Two-Sample / A/B Z-Tests
-- Drug effectiveness: control vs new drug (recovery time).
-- Website design: current vs new design (time spent).
 
-### T-Test (Small Samples / Unknown σ)
-- Uses sample standard deviation and t-distribution.
-- Example: new teaching method, pilot of 20 students, historical mean = 72.
-- Reject H₀ if t > critical value or p < α.
+- Drug effectiveness: control versus new treatment (recovery time).
+- Website design: current versus new design (time spent on page).
+
+### T-Test (Small Samples or Unknown $\sigma$)
+
+- Uses the sample standard deviation and the t-distribution.
+- Example: new teaching method evaluated on a pilot class of 20 students; historical mean score = 72.
+- Reject $H_0$ if the t-statistic exceeds the critical value or if $p < \alpha$.
 
 ### Chi-Squared Tests
 
-| Test | Purpose | Example |
-|------|---------|---------|
-| Goodness of Fit | Observed frequencies match expected | Phone sales across 4 models |
-| Independence | Association between two categorical variables | Phone preference vs age group |
+| Test | Question Answered | Example |
+|------|-------------------|---------|
+| Goodness of Fit | Do observed frequencies match expected frequencies? | Phone sales across four models |
+| Independence | Are two categorical variables associated? | Phone preference versus age group |
 
-Decision: if χ² > critical value or p < α → reject H₀.
+Decision rule: reject $H_0$ if $\chi^2$ exceeds the critical value or if $p < \alpha$.
 
-## Sampling Bias (Important for Valid Inference)
+## Sampling Bias
 
-- **Sample bias**: sample not representative of population.
-- **Participation bias**: volunteers differ from non-participants.
-- **Survivorship bias**: looking only at successes.
-- **Language bias**: wording influences responses.
+Valid inference requires a representative sample. Common threats:
 
-Samples and trial participants must be representative.
+- **Sample bias** — sample does not reflect the population.
+- **Participation bias** — volunteers differ systematically from non-participants.
+- **Survivorship bias** — only successes are observed.
+- **Language bias** — wording influences responses.
 
-## Practical Exercises Covered
+## Exercises Covered
 
-| Material | Focus |
-|----------|-------|
+| Material | Primary Focus |
+|----------|---------------|
 | Retail sales | Confidence intervals |
-| Work hours | Z-score outliers |
+| Work hours | Z-score outlier removal |
 | Housing inflation | One-tailed Z-test |
-| Drug / website A/B | Two-sample Z-test |
+| Drug and website A/B tests | Two-sample Z-test |
 | Exam scores | One-sample t-test |
-| Phone sales | Chi-squared goodness of fit & independence |
-| Solar bills | CLT demonstration |
+| Phone sales | Chi-squared goodness of fit and independence |
+| Solar-panel bills | CLT demonstration |
 
-## Relation to Data Science / NLP
+## Connection to Applied Work
 
-- CLT underpins many evaluation metric assumptions.
+- CLT underpins many assumptions about evaluation metrics.
 - Confidence intervals communicate uncertainty.
-- Hypothesis and A/B tests decide whether a change is statistically significant.
-- Chi-squared useful for categorical feature analysis.
+- Hypothesis and A/B tests determine whether an observed difference is statistically significant.
+- Chi-squared tests are useful for categorical feature analysis.

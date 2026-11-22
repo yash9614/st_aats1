@@ -1,44 +1,34 @@
 # Statistics Materials (st_aats1)
 
-A focused, academically sound repository of statistics notes, formulas, practical examples, and interview preparation.
-
-**Source of truth** for statistics content (curated from chapter materials, Codebasics takeaways, and related resources).
+A focused repository of statistics notes, formulas, practical code patterns, and interview questions.
 
 ## Contents
 
 | File | Description |
 |------|-------------|
-| [formulas_cheatsheet.md](formulas_cheatsheet.md) | Quick-reference formulas for descriptive and inferential statistics |
-| [descriptive_statistics_outliers.md](descriptive_statistics_outliers.md) | Measures of center & spread, normal distribution, Z-score & IQR outliers |
-| [inferential_statistics.md](inferential_statistics.md) | CLT, confidence intervals, hypothesis testing (Z, t, chi-squared), A/B testing, bias |
-| [practical_python_examples.md](practical_python_examples.md) | Concise, runnable Python patterns (numpy / scipy / pandas) |
-| [codebasics_key_takeaways.md](codebasics_key_takeaways.md) | Distilled official Codebasics key takeaways |
+| [formulas_cheatsheet.md](formulas_cheatsheet.md) | Quick-reference formulas |
+| [descriptive_statistics_outliers.md](descriptive_statistics_outliers.md) | Center, spread, normal distribution, outlier detection |
+| [inferential_statistics.md](inferential_statistics.md) | CLT, confidence intervals, hypothesis testing, A/B tests, bias |
+| [practical_python_examples.md](practical_python_examples.md) | Runnable numpy / scipy / pandas patterns |
+| [codebasics_key_takeaways.md](codebasics_key_takeaways.md) | Distilled Codebasics takeaways |
 | [statistics_interview_questions.md](statistics_interview_questions.md) | Beginner and intermediate interview questions |
-| [statistics_materials_index.md](statistics_materials_index.md) | Full index of notes and external sources |
+| [statistics_materials_index.md](statistics_materials_index.md) | Index of notes and external sources |
 
 ## Suggested Learning Path
 
-1. **Foundations** — [Codebasics Key Takeaways](codebasics_key_takeaways.md)
-2. **Descriptive** — [Descriptive Statistics & Outliers](descriptive_statistics_outliers.md) + [Formulas Cheatsheet](formulas_cheatsheet.md)
-3. **Inferential** — [Inferential Statistics](inferential_statistics.md)
-4. **Practice** — [Practical Python Examples](practical_python_examples.md)
-5. **Review** — [Interview Questions](statistics_interview_questions.md)
+1. [Codebasics Key Takeaways](codebasics_key_takeaways.md) — foundations
+2. [Descriptive Statistics & Outliers](descriptive_statistics_outliers.md) + [Formulas Cheatsheet](formulas_cheatsheet.md)
+3. [Inferential Statistics](inferential_statistics.md)
+4. [Practical Python Examples](practical_python_examples.md)
+5. [Interview Questions](statistics_interview_questions.md) — review
 
-## Design Principles
+## Sources
 
-- Quality and depth over quantity
-- Mathematical accuracy with clear explanations
-- Practical applicability (real examples + runnable code patterns)
-- Clear separation of descriptive vs inferential concepts
-- Explicit decision rules for hypothesis testing
-
-## Sources & Attribution
-
-- Chapter materials covering descriptive statistics through chi-squared tests
+- Chapter materials (descriptive statistics through chi-squared tests)
 - Codebasics Math & Stats takeaway PDFs and interview questions
-- Complementary PDFs and resources from related repositories (Nrish_Karik_SataDience/Stats, Krish Naik grand materials)
+- Complementary resources from related repositories
 
-Related practical NLP notes and solved notebooks: [yash9614/grnd_a](https://github.com/yash9614/grnd_a)
+Related NLP notes: [yash9614/grnd_a](https://github.com/yash9614/grnd_a)
 
 ---
 
