@@ -81,6 +81,37 @@ where $X$ is the pre-experiment covariate and $\theta$ is chosen to minimize var
 
 Randomize within strata (country, device type, new vs returning user) and analyze with a stratified estimator. Improves precision when strata differ in baseline rates.
 
+## A/B Testing with Network Effects
+
+Network effects (interference, spillovers) occur when the treatment of one unit affects the outcomes of other units. This is common on social platforms, marketplaces, ranking systems, and recommendation systems.
+
+### Complications introduced by network effects
+
+- **SUTVA violation**: the Stable Unit Treatment Value Assumption (that one unit’s outcome depends only on its own treatment) no longer holds.
+- **Bias**: simple user-level randomization underestimates or overestimates the true effect because of interference.
+- **Examples**:
+  - A new feed ranking algorithm changes what friends see, which changes engagement for both treatment and control users.
+  - A pricing experiment on a marketplace affects supply and demand for everyone.
+  - A new notification system changes overall platform activity.
+
+### Methods to obtain accurate results
+
+| Method | Description | When to use |
+|--------|-------------|-------------|
+| **Cluster randomization** | Randomize entire clusters (friend groups, cities, markets) instead of individuals. | Strong within-cluster interference, weak between-cluster interference. |
+| **Ego-network / ego-centric designs** | Randomize a user’s treatment while carefully controlling or measuring the treatment status of their neighbors. | Social networks where ego-alter interactions matter. |
+| **Graph cluster randomization** | Partition the social graph into clusters and randomize at the cluster level. | Large social graphs. |
+| **Switchback / time-based designs** | Alternate treatment and control over time periods (common in marketplaces). | Temporal interference dominates spatial interference. |
+| **Two-sided randomization** | Randomize both sides of a marketplace (buyers and sellers) with careful design. | Marketplaces with supply-demand interactions. |
+| **Interference-aware estimators** | Model the interference explicitly (exposure mapping, linear-in-means models, etc.) and use specialized estimators. | When the form of interference is partially known. |
+| **Holdout / geo experiments** | Launch the feature in some regions and hold others out. | Large-scale product changes where network effects are global. |
+
+### Practical considerations
+
+- Cluster randomization reduces effective sample size (design effect). Power calculations must account for intra-cluster correlation.
+- Measuring the degree of interference (e.g., via graph density or prior experiments) helps choose the right design.
+- Always check for evidence of interference after the experiment (e.g., outcomes of control users who have many treated neighbors).
+
 ## A/B Testing Model Versions in Production
 
 ### System design checklist
@@ -109,7 +140,7 @@ Randomize within strata (country, device type, new vs returning user) and analyz
 - Consistent assignment per unit
 - Pre-specified metric and analysis plan
 - Adequate power
-- No unaccounted interference
+- No unaccounted interference (or an appropriate design that accounts for it)
 - SRM check passes
 - Practical significance is considered
 
@@ -117,10 +148,11 @@ Randomize within strata (country, device type, new vs returning user) and analyz
 
 - Peeking and stopping early (inflates false-positive rate)
 - Changing the metric after seeing results
-- Ignoring interference in ranking or recommendation systems
+- Ignoring interference in ranking, recommendation, or social systems
 - Instrumentation bugs that cause SRM or missing data
 - Focusing only on statistical significance and ignoring effect size
 - Running underpowered tests
+- Using individual-level randomization when network effects are strong
 
 ## Relation to Other Notes
 
