@@ -1,13 +1,19 @@
 # Practical Interview Questions — Solutions
 
-Working implementations using only NumPy and the standard library (no SciPy / statsmodels) unless noted.
+Working implementations using only NumPy and the standard library (no SciPy / statsmodels) unless noted. Each solution is self-contained and matches the expected test-case behavior.
 
 ## 1. Online Mean and Variance (Welford)
+
+Numerically stable single-pass algorithm. Avoids catastrophic cancellation when values are large and close together.
 
 ```python
 import numpy as np
 
 def running_stats(values):
+    """
+    Online mean and sample variance (Bessel's correction) via Welford's method.
+    :rtype: List[float]  # [mean, sample_variance]
+    """
     n = 0
     mean = 0.0
     M2 = 0.0
@@ -21,8 +27,7 @@ def running_stats(values):
 
     if n < 2:
         return [mean, 0.0]
-    sample_variance = M2 / (n - 1)
-    return [mean, sample_variance]
+    return [mean, M2 / (n - 1)]
 ```
 
 ## 2. Sample vs Population Variance
@@ -31,22 +36,34 @@ def running_stats(values):
 import numpy as np
 
 def variance_and_std(values, sample):
+    """
+    Variance and standard deviation.
+    sample=True  → divide by n-1 (unbiased sample variance)
+    sample=False → divide by n   (population variance)
+    :rtype: List[float]  # [variance, std]
+    """
     arr = np.asarray(values, dtype=float)
     n = len(arr)
     mean = arr.mean()
     ss = np.sum((arr - mean) ** 2)
     divisor = (n - 1) if sample else n
     variance = ss / divisor
-    std = np.sqrt(variance)
-    return [variance, std]
+    return [variance, np.sqrt(variance)]
 ```
 
 ## 3. Two-Proportion z-Test
+
+Uses the pooled proportion under H₀ for the standard error. Two-sided p-value via `math.erfc`.
 
 ```python
 import math
 
 def two_proportion_z_test(x1, n1, x2, n2):
+    """
+    Two-sided z-test for the difference of two proportions.
+    z is positive when group B converts better.
+    :rtype: List[float]  # [z, p_value]
+    """
     p1 = x1 / n1
     p2 = x2 / n2
     p_pool = (x1 + x2) / (n1 + n2)
@@ -58,17 +75,23 @@ def two_proportion_z_test(x1, n1, x2, n2):
 
 ## 4. Outliers by Median Absolute Deviation (Modified Z-Score)
 
+More robust than the classical z-score because it uses the median and MAD instead of the mean and standard deviation.
+
 ```python
 import numpy as np
 
 def mad_outliers(values, threshold=3.5):
+    """
+    Modified z-score outliers: |0.6745 * (x - median) / MAD| > threshold.
+    Returns indices in ascending order.
+    """
     arr = np.asarray(values, dtype=float)
     med = np.median(arr)
-    abs_dev = np.abs(arr - med)
-    mad = np.median(abs_dev)
+    mad = np.median(np.abs(arr - med))
+    if mad == 0:
+        return []  # all values identical
     M = 0.6745 * (arr - med) / mad
-    outlier_indices = np.where(np.abs(M) > threshold)[0]
-    return sorted(outlier_indices.tolist())
+    return sorted(np.where(np.abs(M) > threshold)[0].tolist())
 ```
 
 ## 5. Variance Inflation Factor (VIF)
@@ -77,6 +100,10 @@ def mad_outliers(values, threshold=3.5):
 import numpy as np
 
 def vif(X):
+    """
+    VIF for each column. VIF_j = 1 / (1 - R²_j) where R²_j comes from regressing
+    column j on all other columns (with intercept).
+    """
     X = np.asarray(X, dtype=float)
     n, k = X.shape
     vifs = []
@@ -87,43 +114,50 @@ def vif(X):
         A = np.column_stack([np.ones(n), others])
         beta, _, _, _ = np.linalg.lstsq(A, y, rcond=None)
         y_hat = A @ beta
-        y_mean = y.mean()
-        ss_tot = np.sum((y - y_mean) ** 2)
+        ss_tot = np.sum((y - y.mean()) ** 2)
         ss_res = np.sum((y - y_hat) ** 2)
         r2 = 1 - ss_res / ss_tot if ss_tot > 0 else 0.0
-        vif_j = 1.0 / (1.0 - r2) if r2 < 1.0 else np.inf
-        vifs.append(vif_j)
+        vifs.append(1.0 / (1.0 - r2) if r2 < 1.0 else np.inf)
 
     return vifs
 ```
 
 ## 6. Weighted Least Squares
 
+Rescale each row by √w so ordinary least squares on the rescaled data minimizes the weighted sum of squares.
+
 ```python
 import numpy as np
 
 def weighted_least_squares(x, y, w):
+    """
+    Fit y = a + b*x by weighted least squares.
+    :rtype: List[float]  # [intercept, slope]
+    """
     x, y, w = (np.asarray(v, dtype=float) for v in (x, y, w))
     sqrt_w = np.sqrt(w)
     A = np.column_stack([np.ones(len(x)), x])
-    A_w = A * sqrt_w[:, None]
-    y_w = y * sqrt_w
-    beta, _, _, _ = np.linalg.lstsq(A_w, y_w, rcond=None)
+    beta, _, _, _ = np.linalg.lstsq(A * sqrt_w[:, None], y * sqrt_w, rcond=None)
     return beta.tolist()
 ```
 
 ## 7. Ridge Regression in Closed Form
 
+Intercept is not penalized. Centering lets us solve for the slopes alone, then recover the intercept.
+
 ```python
 import numpy as np
 
 def ridge_regression(X, y, lam):
+    """
+    Ridge regression with unpenalized intercept.
+    :rtype: List[float]  # [intercept, b1, ..., bk]
+    """
     X = np.asarray(X, dtype=float)
     y = np.asarray(y, dtype=float)
     x_mean = X.mean(axis=0)
     y_mean = y.mean()
-    Xc = X - x_mean
-    yc = y - y_mean
+    Xc, yc = X - x_mean, y - y_mean
     k = X.shape[1]
     beta = np.linalg.solve(Xc.T @ Xc + lam * np.eye(k), Xc.T @ yc)
     intercept = y_mean - x_mean @ beta
@@ -136,6 +170,10 @@ def ridge_regression(X, y, lam):
 import numpy as np
 
 def ols_with_se(X, y):
+    """
+    OLS with intercept. Residual variance = RSS / (n - p).
+    :rtype: List[List[float]]  # [coefficients, standard_errors]
+    """
     X = np.column_stack([np.ones(len(y)), np.asarray(X, dtype=float)])
     y = np.asarray(y, dtype=float)
     n, p = X.shape
@@ -149,13 +187,18 @@ def ols_with_se(X, y):
 
 ## 9. Confidence Interval for Relative Lift
 
+Delta-method standard error for the ratio of two proportions.
+
 ```python
 import math
 from statistics import NormalDist
 
 def relative_lift_ci(x1, n1, x2, n2, alpha=0.05):
-    p1 = x1 / n1
-    p2 = x2 / n2
+    """
+    Relative lift = p2/p1 - 1 with delta-method confidence interval.
+    :rtype: List[float]  # [lift, lower, upper]
+    """
+    p1, p2 = x1 / n1, x2 / n2
     v1 = p1 * (1 - p1) / n1
     v2 = p2 * (1 - p2) / n2
     ratio = p2 / p1
@@ -167,28 +210,32 @@ def relative_lift_ci(x1, n1, x2, n2, alpha=0.05):
 
 ## 10. Deterministic Experiment Bucketing
 
+Stable, experiment-specific assignment. Different salts produce independent assignments. Do not use Python’s built-in `hash()` (randomized per process).
+
 ```python
 import hashlib
 
 def assign_buckets(user_ids, salt, n_buckets):
     """
-    Deterministic bucket assignment via MD5 hash of "{salt}:{user_id}".
+    Deterministic bucket assignment via MD5 of "{salt}:{user_id}".
     :rtype: List[int]
     """
     buckets = []
     for uid in user_ids:
-        key = f"{salt}:{uid}"
-        digest = hashlib.md5(key.encode("utf-8")).hexdigest()
+        key = f"{salt}:{uid}".encode("utf-8")
+        digest = hashlib.md5(key).hexdigest()
         buckets.append(int(digest, 16) % n_buckets)
     return buckets
 ```
 
 ## 11. Bayes' Rule for a Rare-Event Detector
 
+Even a highly sensitive detector can produce mostly false alarms when the event is rare.
+
 ```python
 def alarm_posterior(prior, sensitivity, false_positive_rate):
     """
-    P(event | alarm) via Bayes' rule.
+    P(event | alarm) = [sensitivity * prior] / [sensitivity * prior + fpr * (1 - prior)]
     :rtype: float
     """
     true_alarms = sensitivity * prior
@@ -198,16 +245,16 @@ def alarm_posterior(prior, sensitivity, false_positive_rate):
 
 ## 12. Expected Value of a Dice Game
 
+Optimal policy: with rolls remaining, keep a face only if it exceeds the expected value of continuing. Solved by backward induction.
+
 ```python
 def dice_game_value(n_rolls, sides=6):
     """
     Optimal expected value of a dice game with up to n_rolls.
-    Dynamic programming: keep a face only if it beats the value of continuing.
     :rtype: float
     """
     faces = range(1, sides + 1)
-    # Value with one roll left
-    value = sum(faces) / sides
+    value = sum(faces) / sides          # one roll left
     for _ in range(n_rolls - 1):
         continue_value = value
         value = sum(max(f, continue_value) for f in faces) / sides
@@ -216,60 +263,67 @@ def dice_game_value(n_rolls, sides=6):
 
 ## 13. Regression Discontinuity Estimate
 
+Local linear regression on each side of the cutoff. Using (x − cutoff) as the predictor makes each intercept the fitted value at the cutoff.
+
 ```python
 import numpy as np
 
 def rdd_estimate(x, y, cutoff, bandwidth):
     """
-    Local linear regression discontinuity estimate of the jump at the cutoff.
-    :rtype: float   # right value - left value at the cutoff
+    Local linear RDD estimate of the jump at the cutoff.
+    :rtype: float  # right value - left value at the cutoff
     """
     x = np.asarray(x, dtype=float)
     y = np.asarray(y, dtype=float)
     near = np.abs(x - cutoff) <= bandwidth
     left = near & (x < cutoff)
     right = near & (x >= cutoff)
-    # Fit degree-1 polynomials using (x - cutoff) so intercepts are values at cutoff
-    b_l, a_l = np.polyfit(x[left] - cutoff, y[left], 1)
-    b_r, a_r = np.polyfit(x[right] - cutoff, y[right], 1)
+    # Intercepts are the fitted values at the cutoff
+    _, a_l = np.polyfit(x[left] - cutoff, y[left], 1)
+    _, a_r = np.polyfit(x[right] - cutoff, y[right], 1)
     return float(a_r - a_l)
 ```
 
 ## 14. Build a Recommendation System (System Design Outline)
 
 ```text
-High-level design:
+High-level design
+
 1. Objective & metrics
-   - Primary: engagement (CTR, watch time, conversion)
-   - Secondary: diversity, novelty, fairness, latency
+   - Primary: engagement (CTR, watch time, conversion, retention)
+   - Secondary: diversity, novelty, fairness, freshness, latency
 
 2. Candidate generation (retrieval)
-   - Collaborative filtering (user-user or item-item)
-   - Content-based (embeddings of items/users)
+   - Collaborative filtering (user–user or item–item)
+   - Content-based (embeddings of items and users)
    - Popularity / trending as a baseline or fallback
-   - Two-tower models or approximate nearest neighbors for scale
+   - Two-tower models + approximate nearest neighbors for scale
 
 3. Ranking
    - Pointwise, pairwise, or listwise models
-   - Features: user history, item features, context, interaction signals
-   - Offline training + online serving
+   - Features: user history, item features, context, real-time signals
+   - Offline training with online serving
 
 4. Cold start & exploration
    - Content-based or popularity for new users/items
-   - Exploration strategies (epsilon-greedy, Thompson sampling, bandits)
+   - Exploration: epsilon-greedy, Thompson sampling, contextual bandits
 
 5. Evaluation
-   - Offline: NDCG, MAP, recall@k
-   - Online: A/B tests on engagement and guardrail metrics
+   - Offline: NDCG, MAP, recall@k, calibration
+   - Online: A/B tests on primary metrics plus guardrails (latency, diversity)
 
 6. Infrastructure
-   - Feature store, model serving with low latency
-   - Logging for training data
-   - Experimentation platform for A/B tests
+   - Feature store, low-latency model serving
+   - Logging for training data and offline evaluation
+   - Experimentation platform
 
-Key trade-offs: freshness vs latency, exploration vs exploitation, accuracy vs diversity.
+Key trade-offs
+- Freshness vs latency
+- Exploration vs exploitation
+- Accuracy vs diversity / fairness
+- Model complexity vs serving cost
 ```
 
 ---
 
-All solutions match the expected test-case behavior described in [practical_interview_questions.md](practical_interview_questions.md). See also [ab_testing.md](ab_testing.md) for experiment design context and [inferential_statistics.md](inferential_statistics.md) for Bayes and hypothesis-testing foundations.
+All solutions match the expected test-case behavior in [practical_interview_questions.md](practical_interview_questions.md). See also [ab_testing.md](ab_testing.md) for experiment-design context and [inferential_statistics.md](inferential_statistics.md) for Bayes and hypothesis-testing foundations.
