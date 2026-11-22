@@ -1,6 +1,6 @@
 # Statistics Materials (st_aats1)
 
-A focused repository of statistics notes, formulas, practical code patterns, interview questions with answers, and official takeaways.
+A focused repository of statistics notes, formulas, practical code patterns, interview questions (conceptual + coding-style), and official takeaways.
 
 ## Contents
 
@@ -11,8 +11,9 @@ A focused repository of statistics notes, formulas, practical code patterns, int
 | [inferential_statistics.md](inferential_statistics.md) | CLT, confidence intervals, hypothesis testing, A/B tests, bias |
 | [practical_python_examples.md](practical_python_examples.md) | Runnable numpy / scipy / pandas patterns |
 | [codebasics_key_takeaways.md](codebasics_key_takeaways.md) | Official Codebasics key takeaways |
-| [statistics_interview_questions.md](statistics_interview_questions.md) | Beginner and intermediate interview questions |
-| [statistics_interview_answers.md](statistics_interview_answers.md) | Concise answers to the interview questions |
+| [statistics_interview_questions.md](statistics_interview_questions.md) | Conceptual interview questions |
+| [statistics_interview_answers.md](statistics_interview_answers.md) | Concise answers to the conceptual questions |
+| [practical_interview_questions.md](practical_interview_questions.md) | Coding-style questions (Welford, MAD, two-proportion z, VIF) |
 | [statistics_materials_index.md](statistics_materials_index.md) | Index of notes and external sources |
 
 ## Suggested Learning Path
@@ -21,13 +22,14 @@ A focused repository of statistics notes, formulas, practical code patterns, int
 2. [Descriptive Statistics & Outliers](descriptive_statistics_outliers.md) + [Formulas Cheatsheet](formulas_cheatsheet.md)
 3. [Inferential Statistics](inferential_statistics.md)
 4. [Practical Python Examples](practical_python_examples.md)
-5. [Interview Questions](statistics_interview_questions.md) → [Answers](statistics_interview_answers.md)
+5. [Conceptual Interview Questions](statistics_interview_questions.md) → [Answers](statistics_interview_answers.md)
+6. [Practical / Coding Interview Questions](practical_interview_questions.md)
 
 ## Sources
 
 - Chapter materials (descriptive statistics through chi-squared tests)
-- Codebasics Math & Stats takeaway PDFs
-- Codebasics interview question sets
+- Codebasics Math & Stats takeaway PDFs and interview questions
+- Practical coding-style statistics interview questions
 - Complementary resources from related repositories
 
 Related NLP notes: [yash9614/grnd_a](https://github.com/yash9614/grnd_a)
