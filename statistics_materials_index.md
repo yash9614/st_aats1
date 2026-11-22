@@ -7,12 +7,12 @@
 | [formulas_cheatsheet.md](formulas_cheatsheet.md) | Formulas for descriptive stats, distributions, CIs, and tests |
 | [descriptive_statistics_outliers.md](descriptive_statistics_outliers.md) | Center, spread, normal distribution, outlier detection |
 | [inferential_statistics.md](inferential_statistics.md) | CLT, CIs, Z/t/chi-squared tests, A/B testing, bias |
-| [ab_testing.md](ab_testing.md) | Dedicated A/B testing guide (design, production model versions, trustworthiness conditions) |
+| [ab_testing.md](ab_testing.md) | Dedicated A/B testing guide (design, production model versions, network effects, trustworthiness) |
 | [practical_python_examples.md](practical_python_examples.md) | Runnable numpy / scipy / pandas patterns |
 | [codebasics_key_takeaways.md](codebasics_key_takeaways.md) | Official Codebasics key takeaways |
 | [statistics_interview_questions.md](statistics_interview_questions.md) | Conceptual beginner + intermediate interview questions |
 | [statistics_interview_answers.md](statistics_interview_answers.md) | Concise answers to the conceptual questions |
-| [practical_interview_questions.md](practical_interview_questions.md) | Coding-style questions (Welford, sample/population variance, two-proportion z-test, MAD outliers, VIF) |
+| [practical_interview_questions.md](practical_interview_questions.md) | Coding-style questions (Welford, variance, two-proportion z, MAD, VIF, Weighted LS, Ridge, OLS+SE, Relative Lift CI) |
 | [practical_interview_solutions.md](practical_interview_solutions.md) | Working Python solutions for the coding-style questions |
 
 ## Topics Covered
@@ -25,16 +25,18 @@
 - Modified z-score / Median Absolute Deviation
 - Numerically stable online mean & variance (Welford)
 
-### Inferential
+### Inferential & Modeling
 - Central Limit Theorem
-- Confidence intervals
+- Confidence intervals (including relative lift)
 - One-sample and two-sample Z-tests
 - Two-proportion z-test
 - T-tests
 - Chi-squared goodness of fit and independence
-- A/B testing workflows and production system design
-- Sampling bias types
+- A/B testing workflows, production system design, and network effects
+- Ordinary least squares, weighted least squares, ridge regression
+- Coefficient standard errors
 - Variance Inflation Factor (multicollinearity)
+- Sampling bias types
 
 ## External Sources
 
