@@ -48,15 +48,11 @@ Coding-style questions focused on numerically stable implementations and common 
 
 **Constraints**: 1 ≤ len(user_ids) ≤ 10⁶, 2 ≤ n_buckets ≤ 10⁴. Use hashlib.md5. Do not use Python’s built-in hash().
 
-**Hint**: Build a stable key that includes both the experiment salt and the user ID, hash it, and reduce modulo the number of buckets.
-
 ## 11. Bayes' Rule for a Rare-Event Detector
 
 **Problem**: A detector flags a rare event. Given the prior probability of the event, the detector's sensitivity P(alarm | event) and its false positive rate P(alarm | no event), return P(event | alarm) using Bayes' rule.
 
 **Constraints**: 0 < prior < 1, 0 < sensitivity ≤ 1, 0 ≤ false_positive_rate < 1.
-
-**Hint**: An alarm can be a true positive or a false positive. Compute the probability of each path and return the true-alarm share of all alarms.
 
 ## 12. Expected Value of a Dice Game
 
@@ -64,27 +60,31 @@ Coding-style questions focused on numerically stable implementations and common 
 
 **Constraints**: 1 ≤ n_rolls ≤ 1000, 2 ≤ sides ≤ 100. Faces are 1 … sides, equally likely.
 
-**Hint**: Work backwards. With one roll left the value is the average face. With more rolls, keep a face only if it beats the value of continuing.
-
 ## 13. Regression Discontinuity Estimate
 
 **Problem**: Estimate the effect of a policy that applies above a cutoff. Using only observations within `bandwidth` of the cutoff, fit a separate straight line on each side (x < cutoff and x ≥ cutoff), evaluate both at the cutoff, and return the jump: right value − left value.
 
 **Constraints**: At least two distinct x values on each side within the bandwidth. Use np.polyfit of degree 1 on each side.
 
-**Hint**: Restrict to the neighborhood of the cutoff and fit each side separately so you can compare the two sides at the same point. Using x − cutoff as the predictor makes each intercept the fitted value at the cutoff.
+## 14. Exact Binomial Test
 
-## 14. Build a Recommendation System (System Design)
+**Problem**: Run an exact two-sided binomial test. Given `k` successes in `n` trials and a null success probability `p`, return the p-value. Use the "minimum likelihood" definition: sum the probabilities of every outcome that is no more likely than the observed one. Treat outcomes whose probability is within a relative tolerance of `1e-7` of the observed probability as equally likely.
+
+**Constraints**: 1 ≤ n ≤ 1000, 0 ≤ k ≤ n, 0 < p < 1. Use `math.comb`. Cap the p-value at 1. No SciPy.
+
+## 15. Comparing Two Poisson Rates
+
+**Problem**: Compare how often something happens in two fleets (e.g., disengagements per 10,000 miles). Each fleet has a count of events over some exposure. Estimate the rate ratio (B / A) and test whether it differs from 1 using the log rate ratio, whose standard error is √(1/events_A + 1/events_B). Return [rate_ratio, z, p_value] with a two-sided p-value.
+
+**Constraints**: Event counts are positive integers; exposures are positive. Use the normal approximation on the log rate ratio and `math.erfc` for the two-sided p-value.
+
+## 16. Build a Recommendation System (System Design)
 
 **Problem**: Walk through how you would build a recommendation system.
 
-**Key points to cover**:
-- Objective and metrics (CTR, engagement, diversity, etc.)
-- Candidate generation vs ranking
-- Collaborative filtering, content-based, hybrid approaches
-- Feature engineering and offline/online evaluation
-- Cold-start problem and exploration vs exploitation
-- Infrastructure (feature store, serving latency, A/B testing)
+## 17. Performers with MapReduce (System Design)
+
+**Problem**: How would you join two data files (customers, sales) and report the top 10 performers with MapReduce?
 
 ---
 

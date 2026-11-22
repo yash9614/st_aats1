@@ -284,7 +284,52 @@ def rdd_estimate(x, y, cutoff, bandwidth):
     return float(a_r - a_l)
 ```
 
-## 14. Build a Recommendation System (System Design Outline)
+## 14. Exact Binomial Test
+
+Two-sided exact binomial test using the minimum-likelihood definition. Outcomes whose probability is within a relative tolerance of 1e-7 of the observed probability are treated as equally likely. The p-value is capped at 1.
+
+```python
+import math
+
+def binomial_test(k, n, p):
+    """
+    Exact two-sided binomial test (minimum-likelihood definition).
+    :rtype: float
+    """
+    pmf = [
+        math.comb(n, i) * p**i * (1 - p) ** (n - i)
+        for i in range(n + 1)
+    ]
+    observed = pmf[k]
+    p_value = sum(q for q in pmf if q <= observed * (1 + 1e-7))
+    return min(1.0, p_value)
+```
+
+## 15. Comparing Two Poisson Rates
+
+Rate ratio of two Poisson processes. The log rate ratio is approximately normal with standard error √(1/events_A + 1/events_B).
+
+```python
+import math
+
+def poisson_rate_test(events_a, exposure_a, events_b, exposure_b):
+    """
+    Compare two Poisson rates. Returns [rate_ratio, z, p_value].
+    rate_ratio = (events_b / exposure_b) / (events_a / exposure_a)
+    z is the log rate ratio divided by its SE.
+    :rtype: List[float]
+    """
+    rate_a = events_a / exposure_a
+    rate_b = events_b / exposure_b
+    rate_ratio = rate_b / rate_a
+    log_ratio = math.log(rate_ratio)
+    se = math.sqrt(1 / events_a + 1 / events_b)
+    z = log_ratio / se
+    p_value = math.erfc(abs(z) / math.sqrt(2))
+    return [rate_ratio, z, p_value]
+```
+
+## 16. Build a Recommendation System (System Design Outline)
 
 ```text
 High-level design
@@ -322,6 +367,44 @@ Key trade-offs
 - Exploration vs exploitation
 - Accuracy vs diversity / fairness
 - Model complexity vs serving cost
+```
+
+## 17. Performers with MapReduce (System Design Outline)
+
+```text
+Goal: Join customers and sales, then report the top 10 performers (e.g., by total sales).
+
+Assumptions
+- customers: customer_id, name, region, …
+- sales: customer_id, amount, date, …
+- Performer = customer with the highest total sales amount
+
+MapReduce plan
+
+1. Map (sales file)
+   - Emit (customer_id, amount) for every sale
+
+2. Map (customers file)
+   - Emit (customer_id, ("CUSTOMER", name, region, …)) so the join key is the same
+
+3. Shuffle / sort by customer_id
+
+4. Reduce (per customer_id)
+   - Separate the customer record from the list of sales amounts
+   - Sum the amounts
+   - Emit (total_sales, customer_info)   # secondary sort key later, or just collect
+
+5. Top-10 (second job or in-memory if small)
+   - Option A (simple): collect all (total, customer) pairs in the reducer output and sort globally (feasible if the number of customers fits in memory after aggregation)
+   - Option B (scalable): second MapReduce job that uses a composite key or a top-N pattern (each reducer keeps a local heap of size 10, then a final merge produces the global top 10)
+
+Output
+- Top 10 customers by total sales, with name / region and the total amount
+
+Notes
+- Handle customers with no sales (total = 0) if required
+- Handle sales with missing customer records (skip or log)
+- For very large data, the top-N pattern avoids a full global sort
 ```
 
 ---
