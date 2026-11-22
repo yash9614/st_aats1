@@ -10,7 +10,7 @@ A focused repository of statistics notes, formulas, practical code patterns, and
 | [descriptive_statistics_outliers.md](descriptive_statistics_outliers.md) | Center, spread, normal distribution, outlier detection |
 | [inferential_statistics.md](inferential_statistics.md) | CLT, confidence intervals, hypothesis testing, multicollinearity, A/B tests, bias |
 | [ab_testing.md](ab_testing.md) | Dedicated A/B testing guide (design, production model versions, network effects, trustworthiness) |
-| [concepts_notes.md](concepts_notes.md) | Short notes on bucketing, Bayes rare events, dice-game EV, RDD, recommendation systems |
+| [concepts_notes.md](concepts_notes.md) | Short notes on bucketing, Bayes rare events, dice-game EV, RDD, exact binomial test, Poisson rates, recommendation systems, MapReduce |
 | [practical_python_examples.md](practical_python_examples.md) | Runnable numpy patterns |
 | [codebasics_key_takeaways.md](codebasics_key_takeaways.md) | Official Codebasics key takeaways |
 | [statistics_interview_questions.md](statistics_interview_questions.md) | High-priority conceptual interview questions |
@@ -38,10 +38,13 @@ A focused repository of statistics notes, formulas, practical code patterns, and
 - Outlier detection (Z-score, IQR, MAD)
 - A/B testing design, analysis, network effects, CUPED, SRM, deterministic bucketing
 - Relative lift confidence intervals
+- Exact binomial test and two-proportion z-test
+- Comparing two Poisson rates
 - Bayes’ rule for rare-event detectors
 - Expected value of sequential decision problems
 - Regression discontinuity designs
 - Recommendation system design
+- MapReduce join + top-N
 - Numerically stable online statistics (Welford)
 - Weighted least squares, ridge regression, OLS with standard errors
 

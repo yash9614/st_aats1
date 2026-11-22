@@ -8,7 +8,7 @@
 | [descriptive_statistics_outliers.md](descriptive_statistics_outliers.md) | Center, spread, normal distribution, outlier detection (Z-score, IQR, MAD) |
 | [inferential_statistics.md](inferential_statistics.md) | CLT, CIs, hypothesis testing, p-values, multicollinearity, A/B testing, bias |
 | [ab_testing.md](ab_testing.md) | Dedicated A/B testing guide (design, production model versions, network effects, CUPED, SRM) |
-| [concepts_notes.md](concepts_notes.md) | Short notes on deterministic bucketing, Bayes rare events, dice-game EV, RDD, recommendation systems |
+| [concepts_notes.md](concepts_notes.md) | Short notes on deterministic bucketing, Bayes rare events, dice-game EV, RDD, exact binomial test, Poisson rates, recommendation systems, MapReduce |
 | [practical_python_examples.md](practical_python_examples.md) | Runnable numpy patterns including SRM check |
 | [codebasics_key_takeaways.md](codebasics_key_takeaways.md) | Official Codebasics key takeaways |
 | [statistics_interview_questions.md](statistics_interview_questions.md) | High-priority conceptual questions (CLT, p-value, multicollinearity, A/B, outliers) |
@@ -32,6 +32,8 @@
 - p-values (definition and effect of sample size)
 - Type I / Type II errors and power
 - One-sample and two-sample Z-tests, t-tests
+- Exact binomial test (minimum-likelihood definition)
+- Comparing two Poisson rates (log rate ratio)
 - Chi-squared tests
 - Multicollinearity detection (correlation matrix, VIF)
 - A/B testing (design, analysis, network effects, CUPED, SRM, deterministic bucketing)
@@ -47,6 +49,7 @@
 - Ridge regression (unpenalized intercept)
 - Variance Inflation Factor
 - Recommendation system design (candidate generation, ranking, evaluation)
+- MapReduce join + top-N performers
 
 ## External Sources
 
