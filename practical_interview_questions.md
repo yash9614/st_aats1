@@ -1,6 +1,6 @@
 # Practical Statistics Interview Questions
 
-Coding-style questions focused on numerically stable implementations and common applied techniques. Implement using NumPy and the standard library only (no SciPy / statsmodels).
+Coding-style questions focused on numerically stable implementations and common applied techniques. Implement using NumPy and the standard library only (no SciPy / statsmodels) unless noted.
 
 **Working solutions**: [practical_interview_solutions.md](practical_interview_solutions.md)
 
@@ -9,8 +9,6 @@ Coding-style questions focused on numerically stable implementations and common 
 **Problem**: Compute the mean and sample variance (divide by n−1) of a stream of values in a single pass, without storing the values. Must remain accurate when values are very large and close together.
 
 **Constraints**: 2 ≤ len(values) ≤ 10⁷. Return [mean, sample_variance].
-
-**Hint**: Track count, running mean, and running sum of squared deviations from the mean (Welford’s method).
 
 ## 2. Sample vs Population Variance
 
@@ -30,49 +28,63 @@ Coding-style questions focused on numerically stable implementations and common 
 
 ## 6. Weighted Least Squares
 
-**Problem**: Fit a straight line y = a + b·x by weighted least squares. Minimize Σ wᵢ(yᵢ − a − b·xᵢ)². One way: multiply each row of the design matrix and of y by √wᵢ and solve ordinary least squares. Return [a, b].
-
-**Constraints**: 2 ≤ n ≤ 10⁶; weights are positive.
-
-**Hint**: Rescale each row by √w so that ordinary least squares on the rescaled data minimizes the weighted sum of squares.
-
-**Test cases**:
-- Equal weights → ordinary least squares
-- Higher weight on one point → line leans toward that point
-- Weights as inverse variances
+**Problem**: Fit y = a + b·x by weighted least squares. Minimize Σ wᵢ(yᵢ − a − b·xᵢ)² by rescaling rows with √w and solving ordinary least squares. Return [a, b].
 
 ## 7. Ridge Regression in Closed Form
 
-**Problem**: Fit ridge regression with an intercept that is not penalized. Center X and y, solve β = (XcᵀXc + λI)⁻¹ Xcᵀyc for the slopes, then recover the intercept as mean(y) − mean(X)·β. Return the coefficients, intercept first.
-
-**Constraints**: n ≥ 2, λ ≥ 0. The intercept is not penalized.
-
-**Hint**: Centering lets you solve for the slopes alone; the intercept is recovered afterward so it is not shrunk.
-
-**Test cases**:
-- λ = 0 recovers ordinary least squares
-- Large baseline: only the slope shrinks, not the intercept
-- Two correlated predictors
+**Problem**: Fit ridge regression with an intercept that is not penalized. Center X and y, solve for the slopes, then recover the intercept. Return coefficients with intercept first.
 
 ## 8. OLS Coefficients and Standard Errors
 
-**Problem**: Fit ordinary least squares with an intercept and return the coefficients and their standard errors. Add a column of ones to X, solve the normal equations, estimate residual variance as RSS / (n − p), and take SE = √diag(σ² (XᵀX)⁻¹). Return [coefficients, standard_errors], intercept first.
-
-**Constraints**: n > p; X has full column rank. Do not use `lstsq` residuals for the variance.
-
-**Hint**: Compute (XᵀX)⁻¹ once and use it for both the coefficients and the standard errors.
+**Problem**: Fit OLS with an intercept and return coefficients and standard errors. Residual variance = RSS / (n − p). Return [coefficients, standard_errors].
 
 ## 9. Confidence Interval for Relative Lift
 
-**Problem**: Report an A/B test result as a relative lift with a confidence interval. Given x₁ of n₁ conversions in control and x₂ of n₂ in treatment, return [lift, lower, upper], where lift = p₂/p₁ − 1. Use the delta method for the standard error of the ratio:
+**Problem**: Return [lift, lower, upper] where lift = p₂/p₁ − 1. Use the delta method for the SE of the ratio and a two-sided normal interval.
 
-SE = (p₂/p₁) · √(v₁/p₁² + v₂/p₂²) with vᵢ = pᵢ(1 − pᵢ)/nᵢ
+## 10. Deterministic Experiment Bucketing
 
-and a two-sided normal interval.
+**Problem**: Assign users to experiment buckets deterministically so a user always lands in the same bucket and different experiments are independent. For each user ID, hash the string f"{salt}:{user_id}" with MD5, read the hex digest as an integer, and take it modulo n_buckets. Return the bucket for each user in order.
 
-**Constraints**: 0 < x₁ < n₁ and 0 < x₂ < n₂. Use `statistics.NormalDist().inv_cdf` for the critical value.
+**Constraints**: 1 ≤ len(user_ids) ≤ 10⁶, 2 ≤ n_buckets ≤ 10⁴. Use hashlib.md5. Do not use Python’s built-in hash().
 
-**Hint**: Both rates contribute uncertainty to the ratio. Start with each rate and its variance.
+**Hint**: Build a stable key that includes both the experiment salt and the user ID, hash it, and reduce modulo the number of buckets.
+
+## 11. Bayes' Rule for a Rare-Event Detector
+
+**Problem**: A detector flags a rare event. Given the prior probability of the event, the detector's sensitivity P(alarm | event) and its false positive rate P(alarm | no event), return P(event | alarm) using Bayes' rule.
+
+**Constraints**: 0 < prior < 1, 0 < sensitivity ≤ 1, 0 ≤ false_positive_rate < 1.
+
+**Hint**: An alarm can be a true positive or a false positive. Compute the probability of each path and return the true-alarm share of all alarms.
+
+## 12. Expected Value of a Dice Game
+
+**Problem**: You can roll a fair die with `sides` faces up to `n_rolls` times. After each roll you either stop and collect the face value, or roll again — but you must keep the last roll. Playing optimally, what is your expected payoff? Use dynamic programming.
+
+**Constraints**: 1 ≤ n_rolls ≤ 1000, 2 ≤ sides ≤ 100. Faces are 1 … sides, equally likely.
+
+**Hint**: Work backwards. With one roll left the value is the average face. With more rolls, keep a face only if it beats the value of continuing.
+
+## 13. Regression Discontinuity Estimate
+
+**Problem**: Estimate the effect of a policy that applies above a cutoff. Using only observations within `bandwidth` of the cutoff, fit a separate straight line on each side (x < cutoff and x ≥ cutoff), evaluate both at the cutoff, and return the jump: right value − left value.
+
+**Constraints**: At least two distinct x values on each side within the bandwidth. Use np.polyfit of degree 1 on each side.
+
+**Hint**: Restrict to the neighborhood of the cutoff and fit each side separately so you can compare the two sides at the same point. Using x − cutoff as the predictor makes each intercept the fitted value at the cutoff.
+
+## 14. Build a Recommendation System (System Design)
+
+**Problem**: Walk through how you would build a recommendation system.
+
+**Key points to cover**:
+- Objective and metrics (CTR, engagement, diversity, etc.)
+- Candidate generation vs ranking
+- Collaborative filtering, content-based, hybrid approaches
+- Feature engineering and offline/online evaluation
+- Cold-start problem and exploration vs exploitation
+- Infrastructure (feature store, serving latency, A/B testing)
 
 ---
 
