@@ -38,7 +38,6 @@ print(f"95% CI: {ci}")
 ```python
 # H0: population mean = 72
 t_stat, p_value = stats.ttest_1samp(exam_scores, 72)
-# For a right-tailed test, adjust the p-value if desired
 ```
 
 ## Two-Sample Test (A/B)
@@ -46,6 +45,23 @@ t_stat, p_value = stats.ttest_1samp(exam_scores, 72)
 ```python
 # Welch's t-test (does not assume equal variance)
 t_stat, p_value = stats.ttest_ind(design_a, design_b, equal_var=False)
+```
+
+## Two-Proportion Z-Test (conversion rates)
+
+```python
+import math
+
+def two_proportion_z_test(x1, n1, x2, n2):
+    p1, p2 = x1 / n1, x2 / n2
+    p_pool = (x1 + x2) / (n1 + n2)
+    se = math.sqrt(p_pool * (1 - p_pool) * (1/n1 + 1/n2))
+    z = (p2 - p1) / se
+    p_value = math.erfc(abs(z) / math.sqrt(2))
+    return z, p_value
+
+# Example: 20% vs 24% on 1,000 users each
+print(two_proportion_z_test(200, 1000, 240, 1000))
 ```
 
 ## Chi-Squared Tests
@@ -62,6 +78,18 @@ table = np.array([[30, 10], [20, 40]])
 chi2, p, dof, expected = chi2_contingency(table)
 ```
 
+## Sample Ratio Mismatch (SRM) Check
+
+```python
+from scipy.stats import chisquare
+
+# Observed traffic: 4800 control, 5200 treatment; expected 50/50 on 10,000
+observed = [4800, 5200]
+expected = [5000, 5000]
+chi2, p = chisquare(observed, expected)
+# If p is small, SRM is present → investigate assignment bug
+```
+
 ## Central Limit Theorem Illustration
 
 ```python
@@ -70,4 +98,4 @@ sample_means = [np.random.choice(population, 30).mean() for _ in range(1000)]
 # The distribution of sample_means is approximately normal
 ```
 
-These snippets correspond to the heights, telecom, A/B, phone-sales, exam-score, and electricity-bill examples discussed in the conceptual notes.
+These snippets correspond to the heights, telecom, A/B, phone-sales, exam-score, and electricity-bill examples discussed in the conceptual notes. See also [ab_testing.md](ab_testing.md) for full experiment-design guidance.
