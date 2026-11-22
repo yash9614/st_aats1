@@ -12,7 +12,7 @@
 | [codebasics_key_takeaways.md](codebasics_key_takeaways.md) | Official Codebasics key takeaways |
 | [statistics_interview_questions.md](statistics_interview_questions.md) | High-priority conceptual questions (CLT, p-value, multicollinearity, A/B, outliers) |
 | [statistics_interview_answers.md](statistics_interview_answers.md) | Concise answers to the conceptual questions |
-| [practical_interview_questions.md](practical_interview_questions.md) | Coding-style questions (Welford, variance, two-proportion z, MAD, VIF, Weighted LS, Ridge, OLS+SE, Relative Lift CI) |
+| [practical_interview_questions.md](practical_interview_questions.md) | Coding-style questions (Welford, MAD, two-proportion z, VIF, Weighted LS, Ridge, OLS+SE, Relative Lift CI, Deterministic Bucketing, Bayes Rare-Event, Dice Game EV, RDD, Recommendation System) |
 | [practical_interview_solutions.md](practical_interview_solutions.md) | Working Python solutions for the coding-style questions |
 
 ## Topics Covered (aligned with common StrataScratch / FAANG questions)
@@ -24,7 +24,7 @@
 - Outlier detection: Z-score, IQR, modified z-score (MAD)
 - Numerically stable online mean & variance (Welford)
 
-### Inferential
+### Inferential & Probability
 - Central Limit Theorem
 - Confidence intervals & margin of error (sample-size scaling)
 - Hypothesis testing workflow
@@ -33,8 +33,11 @@
 - One-sample and two-sample Z-tests, t-tests
 - Chi-squared tests
 - Multicollinearity detection (correlation matrix, VIF)
-- A/B testing (design, analysis, network effects, CUPED, SRM)
+- A/B testing (design, analysis, network effects, CUPED, SRM, deterministic bucketing)
 - Relative lift confidence intervals (delta method)
+- Bayes’ rule for rare-event detectors
+- Expected value of sequential decision problems (dice game)
+- Regression discontinuity designs
 - Sampling bias types
 
 ### Modeling / Regression
@@ -42,6 +45,7 @@
 - Weighted least squares
 - Ridge regression (unpenalized intercept)
 - Variance Inflation Factor
+- Recommendation system design (candidate generation, ranking, evaluation)
 
 ## External Sources
 
