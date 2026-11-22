@@ -50,4 +50,3 @@ Related NLP notes: [yash9614/grnd_a](https://github.com/yash9614/grnd_a)
 
 ---
 
-**Last updated**: November 2026
