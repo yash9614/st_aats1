@@ -1,6 +1,6 @@
 # Statistics Materials (st_aats1)
 
-A focused repository of statistics notes, formulas, practical code patterns, and interview questions.
+A focused repository of statistics notes, formulas, practical code patterns, interview questions, and official takeaways.
 
 ## Contents
 
@@ -10,8 +10,8 @@ A focused repository of statistics notes, formulas, practical code patterns, and
 | [descriptive_statistics_outliers.md](descriptive_statistics_outliers.md) | Center, spread, normal distribution, outlier detection |
 | [inferential_statistics.md](inferential_statistics.md) | CLT, confidence intervals, hypothesis testing, A/B tests, bias |
 | [practical_python_examples.md](practical_python_examples.md) | Runnable numpy / scipy / pandas patterns |
-| [codebasics_key_takeaways.md](codebasics_key_takeaways.md) | Distilled Codebasics takeaways |
-| [statistics_interview_questions.md](statistics_interview_questions.md) | Beginner and intermediate interview questions |
+| [codebasics_key_takeaways.md](codebasics_key_takeaways.md) | Official Codebasics key takeaways |
+| [statistics_interview_questions.md](statistics_interview_questions.md) | Beginner and intermediate interview questions with hints |
 | [statistics_materials_index.md](statistics_materials_index.md) | Index of notes and external sources |
 
 ## Suggested Learning Path
@@ -20,12 +20,13 @@ A focused repository of statistics notes, formulas, practical code patterns, and
 2. [Descriptive Statistics & Outliers](descriptive_statistics_outliers.md) + [Formulas Cheatsheet](formulas_cheatsheet.md)
 3. [Inferential Statistics](inferential_statistics.md)
 4. [Practical Python Examples](practical_python_examples.md)
-5. [Interview Questions](statistics_interview_questions.md) — review
+5. [Interview Questions](statistics_interview_questions.md) — review with hints
 
 ## Sources
 
 - Chapter materials (descriptive statistics through chi-squared tests)
-- Codebasics Math & Stats takeaway PDFs and interview questions
+- Codebasics Math & Stats takeaway PDFs
+- Codebasics interview question sets
 - Complementary resources from related repositories
 
 Related NLP notes: [yash9614/grnd_a](https://github.com/yash9614/grnd_a)
