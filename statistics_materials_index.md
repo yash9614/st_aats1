@@ -10,6 +10,7 @@
 | [practical_python_examples.md](practical_python_examples.md) | Runnable numpy / scipy / pandas patterns |
 | [codebasics_key_takeaways.md](codebasics_key_takeaways.md) | Official Codebasics key takeaways |
 | [statistics_interview_questions.md](statistics_interview_questions.md) | Beginner + Intermediate interview questions |
+| [statistics_interview_answers.md](statistics_interview_answers.md) | Concise answers to the interview questions |
 
 ## Topics Covered
 
@@ -24,20 +25,20 @@
 - Central Limit Theorem
 - Confidence intervals
 - One-sample and two-sample Z-tests
-- T-tests (small samples)
+- T-tests
 - Chi-squared goodness of fit and independence
 - A/B testing workflows
 - Sampling bias types
 
 ## External Sources
 
-- **Nrish_Karik_SataDience / Stats** — detailed PDFs on descriptive statistics, probability distributions, hypothesis testing, and linear algebra foundations
-- **Krish Naik Grand Materials** — broader Data Science resources containing complementary statistics sections
+- **Nrish_Karik_SataDience / Stats** — detailed PDFs on descriptive statistics, probability, hypothesis testing, linear algebra
+- **Krish Naik Grand Materials** — broader Data Science resources
 - **Codebasics Math & Stats** — official takeaway PDFs and interview question sets
 
 ## Related Repository
 
-Practical NLP notes, solved notebooks, and generative AI materials: [yash9614/grnd_a](https://github.com/yash9614/grnd_a)
+Practical NLP notes and solved notebooks: [yash9614/grnd_a](https://github.com/yash9614/grnd_a)
 
 ---
 
