@@ -1,19 +1,22 @@
-# Statistics Materials
+# Statistics Materials (st_aats1)
 
-Organized notes, key takeaways, and interview questions for descriptive and inferential statistics.
+Dedicated repository for descriptive and inferential statistics notes, Codebasics takeaways, and interview questions.
+
+Previously organized under `grnd_a/resources`; now the single source of truth.
 
 ## Contents
 
-- [Descriptive Statistics & Outliers](descriptive_statistics_outliers.md)
-- [Inferential Statistics](inferential_statistics.md)
-- [Codebasics Key Takeaways](codebasics_key_takeaways.md)
-- [Statistics Interview Questions](statistics_interview_questions.md)
-- [Materials Index](statistics_materials_index.md)
+| File | Description |
+|------|-------------|
+| [descriptive_statistics_outliers.md](descriptive_statistics_outliers.md) | Descriptive stats, normal distribution, Z-score & IQR outliers |
+| [inferential_statistics.md](inferential_statistics.md) | CLT, confidence intervals, Z/t-tests, chi-squared, A/B testing |
+| [codebasics_key_takeaways.md](codebasics_key_takeaways.md) | Official Codebasics key takeaways |
+| [statistics_interview_questions.md](statistics_interview_questions.md) | Beginner + Intermediate interview questions |
+| [statistics_materials_index.md](statistics_materials_index.md) | Full materials index & external sources |
 
 ## Sources
-
-- Chapter materials (descriptive stats, CLT, confidence intervals, Z/t-tests, chi-squared)
+- Chapter materials (descriptive stats through chi-squared tests)
 - Codebasics Math & Stats takeaway PDFs
 - Related repositories (Nrish_Karik_SataDience/Stats, Krish Naik grand materials)
 
-This repository serves as the dedicated home for statistics content. Related practical NLP notes live in [grnd_a](https://github.com/yash9614/grnd_a).
+Related practical NLP notes live in [grnd_a](https://github.com/yash9614/grnd_a).
