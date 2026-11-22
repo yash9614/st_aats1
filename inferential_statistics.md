@@ -36,6 +36,10 @@ Example: daily miles driven — draw a sample from known population data, comput
 - Drug effectiveness: control versus new treatment (recovery time).
 - Website design: current versus new design (time spent on page).
 
+For a full treatment of A/B testing (including production model versioning, experiment design requirements, and trustworthiness conditions), see the dedicated note:
+
+**[A/B Testing](ab_testing.md)**
+
 ### T-Test (Small Samples or Unknown $\sigma$)
 
 - Uses the sample standard deviation and the t-distribution.
@@ -78,3 +82,5 @@ Valid inference requires a representative sample. Common threats:
 - Confidence intervals communicate uncertainty.
 - Hypothesis and A/B tests determine whether an observed difference is statistically significant.
 - Chi-squared tests are useful for categorical feature analysis.
+
+See also: [ab_testing.md](ab_testing.md) for production A/B testing of model versions.

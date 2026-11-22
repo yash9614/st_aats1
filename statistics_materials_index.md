@@ -7,6 +7,7 @@
 | [formulas_cheatsheet.md](formulas_cheatsheet.md) | Formulas for descriptive stats, distributions, CIs, and tests |
 | [descriptive_statistics_outliers.md](descriptive_statistics_outliers.md) | Center, spread, normal distribution, outlier detection |
 | [inferential_statistics.md](inferential_statistics.md) | CLT, CIs, Z/t/chi-squared tests, A/B testing, bias |
+| [ab_testing.md](ab_testing.md) | Dedicated A/B testing guide (design, production model versions, trustworthiness conditions) |
 | [practical_python_examples.md](practical_python_examples.md) | Runnable numpy / scipy / pandas patterns |
 | [codebasics_key_takeaways.md](codebasics_key_takeaways.md) | Official Codebasics key takeaways |
 | [statistics_interview_questions.md](statistics_interview_questions.md) | Conceptual beginner + intermediate interview questions |
@@ -31,7 +32,7 @@
 - Two-proportion z-test
 - T-tests
 - Chi-squared goodness of fit and independence
-- A/B testing workflows
+- A/B testing workflows and production system design
 - Sampling bias types
 - Variance Inflation Factor (multicollinearity)
 

@@ -9,6 +9,7 @@ A focused repository of statistics notes, formulas, practical code patterns, int
 | [formulas_cheatsheet.md](formulas_cheatsheet.md) | Quick-reference formulas |
 | [descriptive_statistics_outliers.md](descriptive_statistics_outliers.md) | Center, spread, normal distribution, outlier detection |
 | [inferential_statistics.md](inferential_statistics.md) | CLT, confidence intervals, hypothesis testing, A/B tests, bias |
+| [ab_testing.md](ab_testing.md) | Dedicated A/B testing guide (design, production model versions, trustworthiness) |
 | [practical_python_examples.md](practical_python_examples.md) | Runnable numpy / scipy / pandas patterns |
 | [codebasics_key_takeaways.md](codebasics_key_takeaways.md) | Official Codebasics key takeaways |
 | [statistics_interview_questions.md](statistics_interview_questions.md) | Conceptual interview questions |
@@ -22,9 +23,10 @@ A focused repository of statistics notes, formulas, practical code patterns, int
 1. [Codebasics Key Takeaways](codebasics_key_takeaways.md) — foundations
 2. [Descriptive Statistics & Outliers](descriptive_statistics_outliers.md) + [Formulas Cheatsheet](formulas_cheatsheet.md)
 3. [Inferential Statistics](inferential_statistics.md)
-4. [Practical Python Examples](practical_python_examples.md)
-5. [Conceptual Interview Questions](statistics_interview_questions.md) → [Answers](statistics_interview_answers.md)
-6. [Practical / Coding Interview Questions](practical_interview_questions.md) → [Solutions](practical_interview_solutions.md)
+4. [A/B Testing](ab_testing.md)
+5. [Practical Python Examples](practical_python_examples.md)
+6. [Conceptual Interview Questions](statistics_interview_questions.md) → [Answers](statistics_interview_answers.md)
+7. [Practical / Coding Interview Questions](practical_interview_questions.md) → [Solutions](practical_interview_solutions.md)
 
 ## Sources
 
