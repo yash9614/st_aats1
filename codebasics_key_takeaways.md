@@ -1,53 +1,51 @@
 # Codebasics Math & Stats — Key Takeaways
 
-Distilled key points from the official Codebasics takeaway PDFs.
+Distilled from official Codebasics takeaway PDFs. Reinforces the practical notes.
 
-## Descriptive vs Inferential Statistics
+## Descriptive vs Inferential
 
-- **Descriptive statistics**: Summarize and describe data (overview of main characteristics).
-- **Inferential statistics**: Make predictions or draw conclusions about a population based on a sample.
+- **Descriptive**: Summarize and describe data.
+- **Inferential**: Predictions or conclusions about a population from a sample.
 
 ## Measures of Central Tendency
 
 | Measure | Definition |
 |---------|------------|
-| Mean | Average (sum / count) |
-| Median | Middle value when ordered; average of two middle values if even count |
-| Mode | Most frequently occurring value |
+| Mean | Average |
+| Median | Middle value (average of two middle values if even count) |
+| Mode | Most frequent value |
 
 ## Percentiles & Quartiles
 
-- **Percentile**: Rank of a value — percentage of data that falls below or equal to it.
-- 25th percentile = Q1 (lower quartile)
-- 50th percentile = Median (Q2)
-- 75th percentile = Q3 (upper quartile)
+- Percentile: percentage of data ≤ the value.
+- 25th = Q1, 50th = Median (Q2), 75th = Q3.
 
 ## Measures of Dispersion
 
 | Measure | Definition | Notes |
 |---------|------------|-------|
-| Range | Max − Min | Simple but sensitive to outliers |
+| Range | Max − Min | Sensitive to outliers |
 | IQR | Q3 − Q1 | Robust to outliers |
 
 ## Distributions
 
-- **Distribution**: Arrangement or spread of values.
-- **Normal distribution**: Bell-shaped curve; most values clustered in the middle.
-- **Probability distribution**: Likelihood of various outcomes.
-- **Discrete**: Values in specific steps/groups (counts).
-- **Continuous**: Any value within a range (height, weight).
+- Distribution: arrangement or spread of values.
+- Normal: bell-shaped, most values in the middle.
+- Probability distribution: likelihood of outcomes.
+- Discrete: specific steps/groups (counts).
+- Continuous: any value in a range (height, weight).
 
-## Sampling & Bias (CLT Context)
+## Sampling & Bias
 
-- **Sample bias**: Sample is not representative of the population.
-- **Participation bias**: People who choose to participate differ from those who do not.
-- **Survivorship bias**: Looking only at successes and ignoring failures.
-- **Language bias**: Influence of language on perception and decisions.
-
-Trial participants and samples should be representative of the target population.
+- Sample bias, participation bias, survivorship bias, language bias.
+- Samples must be representative.
 
 ## Hypothesis Testing Foundations
 
-- **Hypothesis testing**: Technique for decision-making or inferring population characteristics.
-- **Null Hypothesis (H₀)**: Statement of no effect or no difference (benchmark).
-- **Alternative Hypothesis (Hₐ / H₁)**: Proposes a new effect or difference.
+- Technique for decision-making or inferring population characteristics.
+- **H₀**: no effect or no difference (benchmark).
+- **H₁ / Hₐ**: proposes a new effect or difference.
+
+See also:
+- [descriptive_statistics_outliers.md](descriptive_statistics_outliers.md)
+- [inferential_statistics.md](inferential_statistics.md)

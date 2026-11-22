@@ -1,93 +1,79 @@
 # Inferential Statistics: CLT, Confidence Intervals, Hypothesis Testing & A/B Tests
 
-Notes distilled from chapter 8–12 materials covering the Central Limit Theorem, confidence intervals, Z-tests, t-tests, chi-squared tests, and practical A/B testing.
+Notes distilled from chapters 8–12 materials.
 
 ## Central Limit Theorem (CLT)
 
-Even if the population distribution is skewed (e.g., electricity bills), the **sampling distribution of the sample mean** approaches a normal distribution as the sample size grows.
+Even if the population is skewed, the **sampling distribution of the sample mean** approaches normality as sample size grows.
 
-- Practical demonstration: survey of monthly bills across many cities → original data right-skewed, sampling distribution of means is approximately normal.
-- Enables use of normal-based inference even when the underlying data is not normal (provided samples are large enough).
+- Example: electricity bill survey → original data right-skewed, sampling distribution of means approximately normal.
+- Justifies normal-based inference for large samples.
 
 ## Confidence Intervals
 
-A range that is likely to contain the true population parameter (usually the mean) with a given confidence level (commonly 95%).
+Range likely to contain the true population parameter (usually the mean) at a chosen confidence level (commonly 95%).
 
-- Example: daily miles driven by a car (population data available). Take a random sample, compute CI for the mean, and compare to the known population mean.
-- Formula (large sample / known σ):
+Large-sample / known-σ formula:
 
 $$ \bar{x} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}} $$
 
-- Useful for quantifying uncertainty around estimates from samples.
+Example: daily miles driven — sample from population data, compute CI, compare to known population mean.
 
-## Hypothesis Testing with Z-Test
+## Hypothesis Testing — General Workflow
 
-### One-Tailed Test Example (Housing Inflation)
-- **H₀**: Inflation = 10%
-- **H₁**: Inflation > 10%
-- Significance level α = 0.05
-- Decision rules:
-  - Rejection region: if test statistic > critical value → reject H₀
-  - p-value: if p < α → reject H₀
+1. State **H₀** (no effect / no difference) and **H₁** (effect exists).
+2. Choose significance level α (usually 0.05).
+3. Compute test statistic.
+4. Decide via **critical value** (rejection region) **or** **p-value** (both methods agree).
+5. Interpret in context.
 
-### Two-Sample / A/B Testing Examples
-1. **Drug effectiveness** — Control vs new drug; test whether mean recovery time decreases.
-2. **Website design** — Current design vs new design; test whether average time spent increases (right-tailed two-sample Z-test).
+### One-Tailed Z-Test (Housing Inflation)
+- H₀: inflation = 10%
+- H₁: inflation > 10%
+- Reject H₀ if Z > critical value or p < α.
 
-### General Workflow
-1. State H₀ and H₁
-2. Choose α (usually 0.05)
-3. Compute test statistic (Z)
-4. Decide via critical value **or** p-value
-5. Interpret in context
+### Two-Sample / A/B Z-Tests
+- Drug effectiveness: control vs new drug (recovery time).
+- Website design: current vs new design (time spent).
 
-## T-Test (Small Samples / Unknown σ)
+### T-Test (Small Samples / Unknown σ)
+- Uses sample standard deviation and t-distribution.
+- Example: new teaching method, pilot of 20 students, historical mean = 72.
+- Reject H₀ if t > critical value or p < α.
 
-Used when the sample size is small or the population standard deviation is unknown (uses sample standard deviation and t-distribution).
+### Chi-Squared Tests
 
-### Example: New Teaching Method
-- Historical population mean exam score = 72
-- Pilot sample of 20 students
-- **H₀**: New method does not increase average score
-- **H₁**: New method increases average score
-- Decision: if t-statistic > critical value (or p < α) → reject H₀
+| Test | Purpose | Example |
+|------|---------|---------|
+| Goodness of Fit | Observed frequencies match expected | Phone sales across 4 models |
+| Independence | Association between two categorical variables | Phone preference vs age group |
 
-## Chi-Squared Tests
+Decision: if χ² > critical value or p < α → reject H₀.
 
-### 1. Goodness of Fit
-Tests whether observed frequencies match expected frequencies.
+## Sampling Bias (Important for Valid Inference)
 
-- Example: phone sales across 4 models — do actual sales match expected proportions?
-- If p ≥ α → fail to reject H₀ (expected numbers are consistent with observed)
+- **Sample bias**: sample not representative of population.
+- **Participation bias**: volunteers differ from non-participants.
+- **Survivorship bias**: looking only at successes.
+- **Language bias**: wording influences responses.
 
-### 2. Test of Independence
-Tests whether two categorical variables are associated.
-
-- Example: phone preference (iPhone vs Samsung) vs age group (<30 vs ≥30)
-- **H₀**: No association between phone preference and age group
-- **H₁**: There is an association
-- If χ² > critical value or p < α → reject H₀ (variables are dependent)
-
-**Note**: Rejection region and p-value methods are two ways of reaching the same decision.
+Samples and trial participants must be representative.
 
 ## Practical Exercises Covered
 
-| Exercise / Material | Focus |
-|---------------------|-------|
-| Retail store sales | Confidence intervals |
-| Employees work hours | Mean, std, Z-score outlier removal |
+| Material | Focus |
+|----------|-------|
+| Retail sales | Confidence intervals |
+| Work hours | Z-score outliers |
 | Housing inflation | One-tailed Z-test |
-| Drug A/B test | Two-sample Z-test |
-| Website design A/B | Two-sample Z-test on time spent |
-| Operational costs / monthly sales | Additional Z-test and p-value practice |
+| Drug / website A/B | Two-sample Z-test |
 | Exam scores | One-sample t-test |
 | Phone sales | Chi-squared goodness of fit & independence |
-| Solar panel bills | CLT demonstration |
+| Solar bills | CLT demonstration |
 
-## Relation to Data Science / NLP Workflows
+## Relation to Data Science / NLP
 
-- CLT justifies normality assumptions in many evaluation metrics.
-- Confidence intervals communicate uncertainty around model performance or survey results.
-- Hypothesis tests and A/B tests decide whether a new model, feature, or campaign produces a statistically significant improvement.
-- Chi-squared tests are useful for categorical feature analysis and contingency tables.
-- Outlier handling (Z-score) remains relevant when preparing numeric features or evaluation scores.
+- CLT underpins many evaluation metric assumptions.
+- Confidence intervals communicate uncertainty.
+- Hypothesis and A/B tests decide whether a change is statistically significant.
+- Chi-squared useful for categorical feature analysis.
