@@ -23,6 +23,8 @@ A focused repository of statistics notes, formulas, practical code patterns, and
 | [codebasics_workhours_outliers.md](codebasics_workhours_outliers.md) | Employees work hours outliers detection and removal using z-scores |
 | [codebasics_confidence_interval_exercise.md](codebasics_confidence_interval_exercise.md) | Retail sales confidence interval exercise (60%, 82%, 98% CIs) |
 | [codebasics_ztest_hypothesis_testing.md](codebasics_ztest_hypothesis_testing.md) | Z-test hypothesis testing exercise (cost reduction, one-tailed) |
+| [codebasics_pvalue_hypothesis_testing.md](codebasics_pvalue_hypothesis_testing.md) | P-value hypothesis testing (marketing campaign sales increase) |
+| [codebasics_ab_design_comparison.md](codebasics_ab_design_comparison.md) | A/B website design comparison using two-sample Z-test |
 | [statistics_interview_questions.md](statistics_interview_questions.md) | High-priority conceptual interview questions |
 | [statistics_interview_answers.md](statistics_interview_answers.md) | Concise answers to the conceptual questions |
 | [practical_interview_questions.md](practical_interview_questions.md) | Coding-style questions |
@@ -44,9 +46,11 @@ A focused repository of statistics notes, formulas, practical code patterns, and
 11. [Codebasics Work Hours Outliers](codebasics_workhours_outliers.md)
 12. [Codebasics Confidence Interval Exercise](codebasics_confidence_interval_exercise.md)
 13. [Codebasics Z-Test Hypothesis Testing](codebasics_ztest_hypothesis_testing.md)
-14. [Conceptual Interview Questions](statistics_interview_questions.md) → [Answers](statistics_interview_answers.md)
-15. [Codebasics Statistics Interview Questions](codebasics_statistics_interview_questions.md) → [Answers](codebasics_statistics_interview_answers.md)
-16. [Practical / Coding Interview Questions](practical_interview_questions.md) → [Solutions](practical_interview_solutions.md)
+14. [Codebasics P-Value Hypothesis Testing](codebasics_pvalue_hypothesis_testing.md)
+15. [Codebasics A/B Design Comparison](codebasics_ab_design_comparison.md)
+16. [Conceptual Interview Questions](statistics_interview_questions.md) → [Answers](statistics_interview_answers.md)
+17. [Codebasics Statistics Interview Questions](codebasics_statistics_interview_questions.md) → [Answers](codebasics_statistics_interview_answers.md)
+18. [Practical / Coding Interview Questions](practical_interview_questions.md) → [Solutions](practical_interview_solutions.md)
 
 ## High-Priority Topics Covered
 
