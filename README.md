@@ -14,7 +14,7 @@ A focused repository of statistics notes, formulas, practical code patterns, and
 | [concepts_notes.md](concepts_notes.md) | Short notes on bucketing, Bayes rare events, dice-game EV, RDD, exact binomial test, Poisson rates, recommendation systems, MapReduce |
 | [practical_python_examples.md](practical_python_examples.md) | Runnable numpy patterns |
 | [codebasics_key_takeaways.md](codebasics_key_takeaways.md) | Official Codebasics key takeaways |
-| [codebasics_statistics_interview_questions.md](codebasics_statistics_interview_questions.md) | Codebasics math & stats interview questions (Beginner + Intermediate) |
+| [codebasics_statistics_interview_questions.md](codebasics_statistics_interview_questions.md) | Codebasics math & stats interview questions (Beginner + Intermediate + Advanced) |
 | [codebasics_statistics_interview_answers.md](codebasics_statistics_interview_answers.md) | Detailed answers to the Codebasics statistics interview questions |
 | [codebasics_pandas_exercise_solutions.md](codebasics_pandas_exercise_solutions.md) | Codebasics chapter 3 Pandas exercise solutions (data cleaning patterns) |
 | [codebasics_climate_stability_analysis.md](codebasics_climate_stability_analysis.md) | Climate stability analysis using standard deviation (investment decision) |
@@ -26,6 +26,7 @@ A focused repository of statistics notes, formulas, practical code patterns, and
 | [codebasics_pvalue_hypothesis_testing.md](codebasics_pvalue_hypothesis_testing.md) | P-value hypothesis testing (marketing campaign sales increase) |
 | [codebasics_ab_design_comparison.md](codebasics_ab_design_comparison.md) | A/B website design comparison using two-sample Z-test |
 | [codebasics_ttest_chisquared.md](codebasics_ttest_chisquared.md) | One-sample t-test and chi-squared tests (goodness of fit & independence) |
+| [krish_naik_stats_notes_index.md](krish_naik_stats_notes_index.md) | Structured index of Krish Naik / Codebasics-style stats PDF notes (distributions, hypothesis testing, CLT, etc.) |
 | [statistics_interview_questions.md](statistics_interview_questions.md) | High-priority conceptual interview questions |
 | [statistics_interview_answers.md](statistics_interview_answers.md) | Concise answers to the conceptual questions |
 | [practical_interview_questions.md](practical_interview_questions.md) | Coding-style questions |
@@ -37,22 +38,23 @@ A focused repository of statistics notes, formulas, practical code patterns, and
 1. [Codebasics Key Takeaways](codebasics_key_takeaways.md) — foundations
 2. [Descriptive Statistics & Outliers](descriptive_statistics_outliers.md) + [Formulas Cheatsheet](formulas_cheatsheet.md)
 3. [Probability Theory](probability_theory.md)
-4. [Inferential Statistics](inferential_statistics.md) (CLT, CIs, p-values, multicollinearity)
-5. [A/B Testing](ab_testing.md) + [Concepts Notes](concepts_notes.md)
-6. [Practical Python Examples](practical_python_examples.md)
-7. [Codebasics Pandas Exercise Solutions](codebasics_pandas_exercise_solutions.md)
-8. [Codebasics Climate Stability Analysis](codebasics_climate_stability_analysis.md)
-9. [Codebasics Distributions, Outliers & Z-Score](codebasics_distributions_outliers_zscore.md)
-10. [Codebasics Sports League Outliers](codebasics_sports_league_outliers.md)
-11. [Codebasics Work Hours Outliers](codebasics_workhours_outliers.md)
-12. [Codebasics Confidence Interval Exercise](codebasics_confidence_interval_exercise.md)
-13. [Codebasics Z-Test Hypothesis Testing](codebasics_ztest_hypothesis_testing.md)
-14. [Codebasics P-Value Hypothesis Testing](codebasics_pvalue_hypothesis_testing.md)
-15. [Codebasics A/B Design Comparison](codebasics_ab_design_comparison.md)
-16. [Codebasics T-Test & Chi-Squared](codebasics_ttest_chisquared.md)
-17. [Conceptual Interview Questions](statistics_interview_questions.md) → [Answers](statistics_interview_answers.md)
-18. [Codebasics Statistics Interview Questions](codebasics_statistics_interview_questions.md) → [Answers](codebasics_statistics_interview_answers.md)
-19. [Practical / Coding Interview Questions](practical_interview_questions.md) → [Solutions](practical_interview_solutions.md)
+4. [Krish Naik Stats Notes Index](krish_naik_stats_notes_index.md)
+5. [Inferential Statistics](inferential_statistics.md) (CLT, CIs, p-values, multicollinearity)
+6. [A/B Testing](ab_testing.md) + [Concepts Notes](concepts_notes.md)
+7. [Practical Python Examples](practical_python_examples.md)
+8. [Codebasics Pandas Exercise Solutions](codebasics_pandas_exercise_solutions.md)
+9. [Codebasics Climate Stability Analysis](codebasics_climate_stability_analysis.md)
+10. [Codebasics Distributions, Outliers & Z-Score](codebasics_distributions_outliers_zscore.md)
+11. [Codebasics Sports League Outliers](codebasics_sports_league_outliers.md)
+12. [Codebasics Work Hours Outliers](codebasics_workhours_outliers.md)
+13. [Codebasics Confidence Interval Exercise](codebasics_confidence_interval_exercise.md)
+14. [Codebasics Z-Test Hypothesis Testing](codebasics_ztest_hypothesis_testing.md)
+15. [Codebasics P-Value Hypothesis Testing](codebasics_pvalue_hypothesis_testing.md)
+16. [Codebasics A/B Design Comparison](codebasics_ab_design_comparison.md)
+17. [Codebasics T-Test & Chi-Squared](codebasics_ttest_chisquared.md)
+18. [Conceptual Interview Questions](statistics_interview_questions.md) → [Answers](statistics_interview_answers.md)
+19. [Codebasics Statistics Interview Questions](codebasics_statistics_interview_questions.md) → [Answers](codebasics_statistics_interview_answers.md)
+20. [Practical / Coding Interview Questions](practical_interview_questions.md) → [Solutions](practical_interview_solutions.md)
 
 ## High-Priority Topics Covered
 
@@ -77,6 +79,7 @@ A focused repository of statistics notes, formulas, practical code patterns, and
 
 - StrataScratch statistics and probability interview materials
 - Codebasics Math & Stats takeaway PDFs
+- Krish Naik / related stats lecture notes (see `krish_naik_stats_notes_index.md`)
 - Practical coding-style statistics interview questions
 
 Related NLP notes: [yash9614/grnd_a](https://github.com/yash9614/grnd_a)
