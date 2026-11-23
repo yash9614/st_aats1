@@ -8,6 +8,7 @@ A focused repository of statistics notes, formulas, practical code patterns, and
 |------|-------------|
 | [formulas_cheatsheet.md](formulas_cheatsheet.md) | Quick-reference formulas |
 | [descriptive_statistics_outliers.md](descriptive_statistics_outliers.md) | Center, spread, normal distribution, outlier detection |
+| [probability_theory.md](probability_theory.md) | Probability basics, addition/multiplication rules, conditional probability, Bayes’ theorem |
 | [inferential_statistics.md](inferential_statistics.md) | CLT, confidence intervals, hypothesis testing, multicollinearity, A/B tests, bias |
 | [ab_testing.md](ab_testing.md) | Dedicated A/B testing guide (design, production model versions, network effects, trustworthiness) |
 | [concepts_notes.md](concepts_notes.md) | Short notes on bucketing, Bayes rare events, dice-game EV, RDD, exact binomial test, Poisson rates, recommendation systems, MapReduce |
@@ -25,12 +26,13 @@ A focused repository of statistics notes, formulas, practical code patterns, and
 
 1. [Codebasics Key Takeaways](codebasics_key_takeaways.md) — foundations
 2. [Descriptive Statistics & Outliers](descriptive_statistics_outliers.md) + [Formulas Cheatsheet](formulas_cheatsheet.md)
-3. [Inferential Statistics](inferential_statistics.md) (CLT, CIs, p-values, multicollinearity)
-4. [A/B Testing](ab_testing.md) + [Concepts Notes](concepts_notes.md)
-5. [Practical Python Examples](practical_python_examples.md)
-6. [Conceptual Interview Questions](statistics_interview_questions.md) → [Answers](statistics_interview_answers.md)
-7. [Codebasics Statistics Interview Questions](codebasics_statistics_interview_questions.md) → [Answers](codebasics_statistics_interview_answers.md)
-8. [Practical / Coding Interview Questions](practical_interview_questions.md) → [Solutions](practical_interview_solutions.md)
+3. [Probability Theory](probability_theory.md)
+4. [Inferential Statistics](inferential_statistics.md) (CLT, CIs, p-values, multicollinearity)
+5. [A/B Testing](ab_testing.md) + [Concepts Notes](concepts_notes.md)
+6. [Practical Python Examples](practical_python_examples.md)
+7. [Conceptual Interview Questions](statistics_interview_questions.md) → [Answers](statistics_interview_answers.md)
+8. [Codebasics Statistics Interview Questions](codebasics_statistics_interview_questions.md) → [Answers](codebasics_statistics_interview_answers.md)
+9. [Practical / Coding Interview Questions](practical_interview_questions.md) → [Solutions](practical_interview_solutions.md)
 
 ## High-Priority Topics Covered
 
