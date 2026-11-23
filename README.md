@@ -14,6 +14,7 @@ A focused repository of statistics notes, formulas, practical code patterns, and
 | [practical_python_examples.md](practical_python_examples.md) | Runnable numpy patterns |
 | [codebasics_key_takeaways.md](codebasics_key_takeaways.md) | Official Codebasics key takeaways |
 | [codebasics_statistics_interview_questions.md](codebasics_statistics_interview_questions.md) | Codebasics math & stats interview questions (Beginner + Intermediate) |
+| [codebasics_statistics_interview_answers.md](codebasics_statistics_interview_answers.md) | Detailed answers to the Codebasics statistics interview questions |
 | [statistics_interview_questions.md](statistics_interview_questions.md) | High-priority conceptual interview questions |
 | [statistics_interview_answers.md](statistics_interview_answers.md) | Concise answers to the conceptual questions |
 | [practical_interview_questions.md](practical_interview_questions.md) | Coding-style questions |
@@ -28,7 +29,7 @@ A focused repository of statistics notes, formulas, practical code patterns, and
 4. [A/B Testing](ab_testing.md) + [Concepts Notes](concepts_notes.md)
 5. [Practical Python Examples](practical_python_examples.md)
 6. [Conceptual Interview Questions](statistics_interview_questions.md) → [Answers](statistics_interview_answers.md)
-7. [Codebasics Statistics Interview Questions](codebasics_statistics_interview_questions.md)
+7. [Codebasics Statistics Interview Questions](codebasics_statistics_interview_questions.md) → [Answers](codebasics_statistics_interview_answers.md)
 8. [Practical / Coding Interview Questions](practical_interview_questions.md) → [Solutions](practical_interview_solutions.md)
 
 ## High-Priority Topics Covered
