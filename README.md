@@ -22,6 +22,7 @@ A focused repository of statistics notes, formulas, practical code patterns, and
 | [codebasics_sports_league_outliers.md](codebasics_sports_league_outliers.md) | Sports league outliers detection using ±3σ rule (age & player rating) |
 | [codebasics_workhours_outliers.md](codebasics_workhours_outliers.md) | Employees work hours outliers detection and removal using z-scores |
 | [codebasics_confidence_interval_exercise.md](codebasics_confidence_interval_exercise.md) | Retail sales confidence interval exercise (60%, 82%, 98% CIs) |
+| [codebasics_ztest_hypothesis_testing.md](codebasics_ztest_hypothesis_testing.md) | Z-test hypothesis testing exercise (cost reduction, one-tailed) |
 | [statistics_interview_questions.md](statistics_interview_questions.md) | High-priority conceptual interview questions |
 | [statistics_interview_answers.md](statistics_interview_answers.md) | Concise answers to the conceptual questions |
 | [practical_interview_questions.md](practical_interview_questions.md) | Coding-style questions |
@@ -42,9 +43,10 @@ A focused repository of statistics notes, formulas, practical code patterns, and
 10. [Codebasics Sports League Outliers](codebasics_sports_league_outliers.md)
 11. [Codebasics Work Hours Outliers](codebasics_workhours_outliers.md)
 12. [Codebasics Confidence Interval Exercise](codebasics_confidence_interval_exercise.md)
-13. [Conceptual Interview Questions](statistics_interview_questions.md) → [Answers](statistics_interview_answers.md)
-14. [Codebasics Statistics Interview Questions](codebasics_statistics_interview_questions.md) → [Answers](codebasics_statistics_interview_answers.md)
-15. [Practical / Coding Interview Questions](practical_interview_questions.md) → [Solutions](practical_interview_solutions.md)
+13. [Codebasics Z-Test Hypothesis Testing](codebasics_ztest_hypothesis_testing.md)
+14. [Conceptual Interview Questions](statistics_interview_questions.md) → [Answers](statistics_interview_answers.md)
+15. [Codebasics Statistics Interview Questions](codebasics_statistics_interview_questions.md) → [Answers](codebasics_statistics_interview_answers.md)
+16. [Practical / Coding Interview Questions](practical_interview_questions.md) → [Solutions](practical_interview_solutions.md)
 
 ## High-Priority Topics Covered
 
