@@ -29,53 +29,82 @@ $$ \hat{p} \pm z_{\alpha/2} \cdot \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} $$
 
 Common interview angles: Tesla (CI for binomial proportion), Google (samples needed to shrink margin of error).
 
-## Hypothesis Testing Workflow
+## Hypothesis Testing
 
-1. State H₀ (no effect / no difference) and H₁ (effect exists).
-2. Choose significance level α (usually 0.05).
-3. Compute the test statistic.
-4. Decide using the critical value (rejection region) **or** the p-value.
-5. Interpret the result in context.
+Hypothesis testing is a statistical technique for decision-making or inferring population characteristics from sample data.
 
-### p-value
+### Null vs Alternative Hypothesis
 
-The probability of observing a result at least as extreme as the one obtained, **assuming H₀ is true**.
+- **Null Hypothesis (H₀)**: Represents a statement of no effect or no difference. It serves as the benchmark (default assumption) in hypothesis testing.
+- **Alternative Hypothesis (Hₐ or H₁)**: Proposes a new effect or difference, challenging the null hypothesis. This is what we hope to find evidence for.
 
+### Z-Test
+
+A statistical test used to determine if there's a significant difference between sample and population means (or between two samples), typically when the sample size is large (n > 30) and the population standard deviation is known (or can be estimated reliably).
+
+**Key elements**:
+- **Significance Level (α / Alpha)**: Defines the threshold for rejecting the null hypothesis, commonly set at 0.05 (5%). Formula: α = 1 − confidence level.
+- **Critical Z-Value (Z_crit)**: The cut-off point in a Z-test that distinguishes the rejection region for the null hypothesis.
+- **Rejection Region**: The area beyond the critical Z-value (Z_crit) where, if the Z-score falls, the null hypothesis is rejected due to significant evidence.
+
+### p-Value
+
+The p-value is the probability of obtaining results as extreme as (or more extreme than) those observed, **assuming the null hypothesis is correct**.
+
+- If the p-value is less than the chosen significance level (e.g., 0.05), it suggests strong evidence against the null hypothesis, leading to its rejection.
 - Small p-value (< α) → reject H₀.
 - Larger sample size reduces standard error, which tends to make the test statistic larger and the p-value smaller (more power).
 
 **StrataScratch / interview references**: State Farm, Amazon.
 
+### One-Tailed vs Two-Tailed Test
+
+- **One-Tail Test**: Checks if a parameter is significantly different in one direction (greater than or less than).
+- **Two-Tail Test**: Evaluates if a parameter is significantly different in any direction (greater or less).
+
 ### Type I and Type II Errors
 
-| Error | Definition | Probability |
-|-------|------------|-------------|
-| Type I (false positive) | Reject true H₀ | α |
-| Type II (false negative) | Fail to reject false H₀ | β |
-| Power | Correctly reject false H₀ | 1 − β |
+| Error | Definition | Also known as | Probability |
+|-------|------------|---------------|-------------|
+| **Type I** | Incorrectly reject a true null hypothesis | False positive | α |
+| **Type II** | Fail to reject a false null hypothesis | False negative | β |
+| **Power** | Correctly reject a false null hypothesis | True positive rate | 1 − β |
 
-### One-Tailed Z-Test
+**Beta (β)**: The probability of making a Type II error (false negative).
 
-Example: housing inflation. H₀: inflation = 10%; H₁: inflation > 10%.
+**Statistical Power**: The probability of correctly rejecting a false null hypothesis, equal to 1 − β.
 
-### Two-Sample / A/B Z-Tests
+Balancing Type I and Type II errors is crucial in statistical analysis. Lowering α reduces Type I error but increases Type II error (and vice versa). Increasing sample size improves power without raising α.
 
-Drug effectiveness, website design, conversion-rate comparisons.
+### Statistical Power & Effect Size
 
-For full A/B testing (including production model versions, network effects, and trustworthiness conditions), see:
+- **Statistical power** (1 − β): Probability of correctly rejecting a false null hypothesis.
+- **Effect size**: Quantifies the magnitude of the difference or relationship between two groups or variables in a study (e.g., Cohen’s d, difference in proportions).
+
+Larger effect sizes and larger sample sizes both increase statistical power.
+
+### One-Sample vs Two-Sample Tests
+
+- **One-Sample Test**: Used to check if a sample significantly differs from a known population parameter.
+- **Two-Sample Test**: Compares two independent sample data sets to identify significant differences between their means or proportions.
+
+### When to Use Z-Test vs T-Test
+
+- Use the **Z-test** when the sample size is > 30 (and σ is known or well-estimated).
+- Use the **T-test** when the sample size is ≤ 30 (or when σ is unknown and we use the sample standard deviation).
+
+## A/B Testing
+
+A/B testing compares two versions (A and B) to find which performs better based on user engagement and relevant metrics.
+
+- **Control group**: Baseline for comparing experimental effects (the current version, A).
+- **Test group** (Treatment): Subjects exposed to the experimental treatment for evaluation (the new version, B).
+
+Most A/B tests are two-sample hypothesis tests (often a two-proportion z-test for conversion rates).
+
+For full A/B testing details (including production model versions, network effects, sample size/power calculations, and trustworthiness conditions), see:
 
 **[A/B Testing](ab_testing.md)**
-
-### T-Test (Small Samples or Unknown σ)
-
-Uses the sample standard deviation and the t-distribution.
-
-### Chi-Squared Tests
-
-| Test | Question Answered |
-|------|-------------------|
-| Goodness of Fit | Do observed frequencies match expected? |
-| Independence | Are two categorical variables associated? |
 
 ## Multicollinearity
 
