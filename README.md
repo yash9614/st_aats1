@@ -16,6 +16,7 @@ A focused repository of statistics notes, formulas, practical code patterns, and
 | [codebasics_key_takeaways.md](codebasics_key_takeaways.md) | Official Codebasics key takeaways |
 | [codebasics_statistics_interview_questions.md](codebasics_statistics_interview_questions.md) | Codebasics math & stats interview questions (Beginner + Intermediate) |
 | [codebasics_statistics_interview_answers.md](codebasics_statistics_interview_answers.md) | Detailed answers to the Codebasics statistics interview questions |
+| [codebasics_pandas_exercise_solutions.md](codebasics_pandas_exercise_solutions.md) | Codebasics chapter 3 Pandas exercise solutions (data cleaning patterns) |
 | [statistics_interview_questions.md](statistics_interview_questions.md) | High-priority conceptual interview questions |
 | [statistics_interview_answers.md](statistics_interview_answers.md) | Concise answers to the conceptual questions |
 | [practical_interview_questions.md](practical_interview_questions.md) | Coding-style questions |
@@ -30,9 +31,10 @@ A focused repository of statistics notes, formulas, practical code patterns, and
 4. [Inferential Statistics](inferential_statistics.md) (CLT, CIs, p-values, multicollinearity)
 5. [A/B Testing](ab_testing.md) + [Concepts Notes](concepts_notes.md)
 6. [Practical Python Examples](practical_python_examples.md)
-7. [Conceptual Interview Questions](statistics_interview_questions.md) → [Answers](statistics_interview_answers.md)
-8. [Codebasics Statistics Interview Questions](codebasics_statistics_interview_questions.md) → [Answers](codebasics_statistics_interview_answers.md)
-9. [Practical / Coding Interview Questions](practical_interview_questions.md) → [Solutions](practical_interview_solutions.md)
+7. [Codebasics Pandas Exercise Solutions](codebasics_pandas_exercise_solutions.md)
+8. [Conceptual Interview Questions](statistics_interview_questions.md) → [Answers](statistics_interview_answers.md)
+9. [Codebasics Statistics Interview Questions](codebasics_statistics_interview_questions.md) → [Answers](codebasics_statistics_interview_answers.md)
+10. [Practical / Coding Interview Questions](practical_interview_questions.md) → [Solutions](practical_interview_solutions.md)
 
 ## High-Priority Topics Covered
 
