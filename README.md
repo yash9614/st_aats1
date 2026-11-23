@@ -18,6 +18,7 @@ A focused repository of statistics notes, formulas, practical code patterns, and
 | [codebasics_statistics_interview_answers.md](codebasics_statistics_interview_answers.md) | Detailed answers to the Codebasics statistics interview questions |
 | [codebasics_pandas_exercise_solutions.md](codebasics_pandas_exercise_solutions.md) | Codebasics chapter 3 Pandas exercise solutions (data cleaning patterns) |
 | [codebasics_climate_stability_analysis.md](codebasics_climate_stability_analysis.md) | Climate stability analysis using standard deviation (investment decision) |
+| [codebasics_distributions_outliers_zscore.md](codebasics_distributions_outliers_zscore.md) | Normal distribution, outlier detection, z-score, and standard normal distribution solutions |
 | [statistics_interview_questions.md](statistics_interview_questions.md) | High-priority conceptual interview questions |
 | [statistics_interview_answers.md](statistics_interview_answers.md) | Concise answers to the conceptual questions |
 | [practical_interview_questions.md](practical_interview_questions.md) | Coding-style questions |
@@ -34,9 +35,10 @@ A focused repository of statistics notes, formulas, practical code patterns, and
 6. [Practical Python Examples](practical_python_examples.md)
 7. [Codebasics Pandas Exercise Solutions](codebasics_pandas_exercise_solutions.md)
 8. [Codebasics Climate Stability Analysis](codebasics_climate_stability_analysis.md)
-9. [Conceptual Interview Questions](statistics_interview_questions.md) → [Answers](statistics_interview_answers.md)
-10. [Codebasics Statistics Interview Questions](codebasics_statistics_interview_questions.md) → [Answers](codebasics_statistics_interview_answers.md)
-11. [Practical / Coding Interview Questions](practical_interview_questions.md) → [Solutions](practical_interview_solutions.md)
+9. [Codebasics Distributions, Outliers & Z-Score](codebasics_distributions_outliers_zscore.md)
+10. [Conceptual Interview Questions](statistics_interview_questions.md) → [Answers](statistics_interview_answers.md)
+11. [Codebasics Statistics Interview Questions](codebasics_statistics_interview_questions.md) → [Answers](codebasics_statistics_interview_answers.md)
+12. [Practical / Coding Interview Questions](practical_interview_questions.md) → [Solutions](practical_interview_solutions.md)
 
 ## High-Priority Topics Covered
 
