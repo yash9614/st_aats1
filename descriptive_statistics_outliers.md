@@ -52,10 +52,41 @@ In a normal distribution:
 - ~95% within two standard deviations
 - ~99.7% within three standard deviations
 
+### Standard Normal Distribution (SND)
+
+The **Standard Normal Distribution** is a special case of the normal distribution with:
+- Mean = 0
+- Standard deviation = 1
+
+It is a bell-shaped curve used for:
+- Comparing datasets on the same scale
+- Calculating probabilities
+- Z-tests to assess differences between means
+
+Any normal distribution can be converted to the standard normal using the z-score.
+
+## Outliers
+
+An **outlier** is a number/value in a set that is much higher or lower than the others.
+
+Outliers can be identified using a normal distribution and standard deviation, as they typically fall far outside the typical range of values.
+
 ## Outlier Detection
 
 ### Z-score method
-Flag points where |z| > 3 (assumes roughly normal data).
+
+**Z-score** shows how many standard deviations a data point is from the mean.
+
+**Formula**:
+\[
+z = \frac{x - \mu}{\sigma}
+\]
+
+**Uses**:
+- Comparing datasets
+- Identifying and removing outliers
+
+**Outlier rule**: Outliers are typically identified when the z-score exceeds 3 or falls below -3 (i.e., |z| > 3). This assumes roughly normal data.
 
 ### IQR method
 Flag points outside [Q1 − 1.5·IQR, Q3 + 1.5·IQR].
